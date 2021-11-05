@@ -27,7 +27,7 @@ namespace Gisha.GameOff_2021
 
         private void FixedUpdate()
         {
-            _rb.velocity = new Vector2(_hInput * moveSpeed, _rb.velocity.y);
+            _rb.velocity = new Vector2(_hInput * moveSpeed * Time.deltaTime, _rb.velocity.y);
         }
 
         private void Jump()
