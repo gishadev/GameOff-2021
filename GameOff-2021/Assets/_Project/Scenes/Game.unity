@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 500
-  jumpForce: 8
+  jumpForce: 23
   groundCheckerPoint: {fileID: 1127139844}
   groundCheckerRadius: 0.4
 --- !u!1 &519420028

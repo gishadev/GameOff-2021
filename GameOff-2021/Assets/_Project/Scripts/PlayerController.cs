@@ -40,13 +40,13 @@ namespace Gisha.GameOff_2021
         {
             _hInput = Input.GetAxis("Horizontal");
 
+            // Making full jump.
             if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
-                Jump();
-        }
+                _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
 
-        private void Jump()
-        {
-            _rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+            // Making half jump.
+            if (Input.GetKeyUp(KeyCode.Space) && _rb.velocity.y > 0)
+                _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
         }
 
         private void CheckForGround()
