@@ -9,7 +9,8 @@ namespace Gisha.GameOff_2021
         [SerializeField] private float moveSpeed = 500f;
         [SerializeField] private float jumpForce = 8f;
         [SerializeField] private float coyoteTime = 0.2f;
-
+        [SerializeField] private float jumpBufferTime = 0.5f;
+        
         [Header("Ground Checker")] [SerializeField]
         private Transform groundCheckerPoint;
 
@@ -17,6 +18,7 @@ namespace Gisha.GameOff_2021
         [SerializeField] private float afterJumpCheckDelay = 0.1f;
 
         private float _coyoteCounter;
+        private float _bufferCounter;
         private LayerMask _groundLayer;
         private bool _isGrounded = true;
         private float _hInput;
@@ -54,10 +56,18 @@ namespace Gisha.GameOff_2021
             else
                 _coyoteCounter -= Time.deltaTime;
 
+            // Jump buffer counter.
+            if (Input.GetKeyDown(KeyCode.Space))
+                _bufferCounter = jumpBufferTime;
+            else
+                _bufferCounter -= Time.deltaTime;
+
             // Making full jump.
-            if (Input.GetKeyDown(KeyCode.Space) && _coyoteCounter > 0)
+            if (_bufferCounter > 0 && _coyoteCounter > 0)
             {
                 MakeFullJump();
+
+                _bufferCounter = 0;
                 StopAllCoroutines();
                 StartCoroutine(GroundCheckCoroutineWithDelay(afterJumpCheckDelay));
             }
