@@ -9,13 +9,15 @@ namespace Gisha.GameOff_2021
         [SerializeField] private float jumpForce = 8f;
         [SerializeField] private float coyoteTime = 0.2f;
         [SerializeField] private float jumpBufferTime = 0.5f;
-        
+
         [Header("Ground Checker")] [SerializeField]
         private Transform groundCheckerPoint;
 
         [SerializeField] private float groundCheckerRadius = 0.25f;
         [SerializeField] private float afterJumpCheckDelay = 0.1f;
+        [Space] [SerializeField] private ControlBehaviour _controlBehaviour;
 
+        private bool _isControlMode;
         private float _coyoteCounter;
         private float _bufferCounter;
         private LayerMask _groundLayer;
@@ -37,6 +39,15 @@ namespace Gisha.GameOff_2021
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.R))
+                _isControlMode = !_isControlMode;
+
+            if (_isControlMode)
+            {
+                _controlBehaviour.HandleInput();
+                return;
+            }
+
             HandleInput();
         }
 
@@ -103,6 +114,27 @@ namespace Gisha.GameOff_2021
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(groundCheckerPoint.position, groundCheckerRadius);
+        }
+    }
+
+    [System.Serializable]
+    internal class ControlBehaviour
+    {
+        public void HandleInput()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                var clickPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                var coll = Physics2D.OverlapCircleAll(clickPoint, 0.1f);
+
+                for (int i = 0; i < coll.Length; i++)
+                {
+                    coll[i].gameObject.TryGetComponent(out Controllable controllable);
+                    
+                    if (controllable != null)
+                        controllable.InteractAction();
+                }
+            }
         }
     }
 }

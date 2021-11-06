@@ -30437,6 +30437,7 @@ GameObject:
   - component: {fileID: 1165889052}
   - component: {fileID: 1165889051}
   - component: {fileID: 1165889053}
+  - component: {fileID: 1165889054}
   m_Layer: 6
   m_Name: Elevator
   m_TagString: Untagged
@@ -30535,6 +30536,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.3125, y: 0.2838688}
   m_EdgeRadius: 0
+--- !u!114 &1165889054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165889050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f10f3e83af94c96b571c59eb06e7b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1250933544
 GameObject:
   m_ObjectHideFlags: 0
