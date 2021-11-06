@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Gisha.GameOff_2021
