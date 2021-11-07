@@ -7,9 +7,11 @@ namespace Gisha.GameOff_2021
     {
         private Animator _animator;
         private PlayerController _controller;
+        private SpriteRenderer _sr;
 
         private void Awake()
         {
+            _sr = GetComponentInChildren<SpriteRenderer>();
             _controller = GetComponent<PlayerController>();
             _animator = GetComponent<Animator>();
         }
@@ -30,6 +32,11 @@ namespace Gisha.GameOff_2021
                 _animator.SetBool("IsRunning", true);
             else
                 _animator.SetBool("IsRunning", false);
+
+            if (_controller.Velocity.x > 0)
+                _sr.flipX = false;
+            else if (_controller.Velocity.x < 0)
+                _sr.flipX = true;
         }
 
         private void SetJumpAnimation()
