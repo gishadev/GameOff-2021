@@ -1,33 +1,31 @@
+using UnityEngine;
 using System;
 using System.Collections;
-using UnityEngine;
 
-namespace Gisha.GameOff_2021
+namespace Gisha.GameOff_2021.Player
 {
-    public class PlayerController : MonoBehaviour
+    public class MovementBehaviour : PlayerBehaviour
     {
         [SerializeField] private float moveSpeed = 500f;
-        [SerializeField] private float jumpForce = 8f;
-        [SerializeField] private float coyoteTime = 0.2f;
-        [SerializeField] private float jumpBufferTime = 0.5f;
+        [SerializeField] private float jumpForce = 23f;
+        [SerializeField] private float coyoteTime = 0.15f;
+        [SerializeField] private float jumpBufferTime = 0.2f;
 
         [Header("Ground Checker")] [SerializeField]
         private Transform groundCheckerPoint;
 
-        [SerializeField] private float groundCheckerRadius = 0.25f;
+        [SerializeField] private float groundCheckerRadius = 0.31f;
         [SerializeField] private float afterJumpCheckDelay = 0.1f;
-        [Space] [SerializeField] private ControlBehaviour _controlBehaviour;
 
         public Vector2 Velocity => _rb.velocity;
         public Action OnPlayerJumped { set; get; }
-
-        private bool _isControlMode;
+        
         private float _coyoteCounter;
         private float _bufferCounter;
         private LayerMask _groundLayer;
         private bool _isGrounded = true;
         private float _hInput;
-
+        
         private Rigidbody2D _rb;
 
         private void Awake()
@@ -41,25 +39,16 @@ namespace Gisha.GameOff_2021
             StartCoroutine(GroundCheckCoroutine());
         }
 
-        private void Update()
+        public override void Update()
         {
-            if (Input.GetKeyDown(KeyCode.R))
-                _isControlMode = !_isControlMode;
-
-            if (_isControlMode)
-            {
-                _controlBehaviour.HandleInput();
-                return;
-            }
-
             HandleInput();
         }
 
-        private void FixedUpdate()
+        public override void FixedUpdate()
         {
             _rb.velocity = new Vector2(_hInput * moveSpeed * Time.deltaTime, _rb.velocity.y);
         }
-
+        
         private void HandleInput()
         {
             _hInput = Input.GetAxis("Horizontal");
@@ -113,32 +102,11 @@ namespace Gisha.GameOff_2021
             yield return new WaitForSeconds(delay);
             StartCoroutine(GroundCheckCoroutine());
         }
-
+        
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(groundCheckerPoint.position, groundCheckerRadius);
-        }
-    }
-
-    [System.Serializable]
-    internal class ControlBehaviour
-    {
-        public void HandleInput()
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                var clickPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                var coll = Physics2D.OverlapCircleAll(clickPoint, 0.1f);
-
-                for (int i = 0; i < coll.Length; i++)
-                {
-                    coll[i].gameObject.TryGetComponent(out Controllable controllable);
-
-                    if (controllable != null)
-                        controllable.InteractAction();
-                }
-            }
         }
     }
 }

@@ -30138,6 +30138,8 @@ GameObject:
   - component: {fileID: 187455847}
   - component: {fileID: 187455845}
   - component: {fileID: 187455846}
+  - component: {fileID: 187455850}
+  - component: {fileID: 187455849}
   - component: {fileID: 187455848}
   m_Layer: 0
   m_Name: Player
@@ -30214,13 +30216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b9ffb98962acf4f858d4b1537a9f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 500
-  jumpForce: 23
-  coyoteTime: 0.15
-  jumpBufferTime: 0.2
-  groundCheckerPoint: {fileID: 1127139844}
-  groundCheckerRadius: 0.31
-  afterJumpCheckDelay: 0.1
 --- !u!58 &187455847
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -30249,6 +30244,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8a83ba25fe5a147abebf00aa745ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &187455849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187455842}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea68e5b53e2d4e378437d4908b13d76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &187455850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187455842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dda7896661a4f8898148616e710d500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 500
+  jumpForce: 23
+  coyoteTime: 0.15
+  jumpBufferTime: 0.2
+  groundCheckerPoint: {fileID: 1127139844}
+  groundCheckerRadius: 0.31
+  afterJumpCheckDelay: 0.1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,30 +1,30 @@
 using UnityEngine;
 
-namespace Gisha.GameOff_2021
+namespace Gisha.GameOff_2021.Player
 {
     public class PlayerAnimationsHandler : MonoBehaviour
     {
         private float _hInput;
 
         private Animator _animator;
-        private PlayerController _controller;
+        private MovementBehaviour _movementBehaviour;
         private SpriteRenderer _sr;
 
         private void Awake()
         {
             _sr = GetComponentInChildren<SpriteRenderer>();
-            _controller = GetComponent<PlayerController>();
+            _movementBehaviour = GetComponent<MovementBehaviour>();
             _animator = GetComponent<Animator>();
         }
 
         private void OnEnable()
         {
-            _controller.OnPlayerJumped += SetJumpAnimation;
+            _movementBehaviour.OnPlayerJumped += SetJumpAnimation;
         }
 
         private void OnDisable()
         {
-            _controller.OnPlayerJumped -= SetJumpAnimation;
+            _movementBehaviour.OnPlayerJumped -= SetJumpAnimation;
         }
 
         private void Update()
