@@ -11,7 +11,7 @@ namespace Gisha.GameOff_2021.Interactive
             if (!_isRising)
                 return;
 
-            transform.Translate(Vector2.up * 0.1f * Time.deltaTime);
+            transform.Translate(Vector2.up * 1f * Time.deltaTime);
         }
 
         public override void InteractAction()
