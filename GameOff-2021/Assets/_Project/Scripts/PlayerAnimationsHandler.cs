@@ -1,10 +1,11 @@
-using System;
 using UnityEngine;
 
 namespace Gisha.GameOff_2021
 {
     public class PlayerAnimationsHandler : MonoBehaviour
     {
+        private float _hInput;
+
         private Animator _animator;
         private PlayerController _controller;
         private SpriteRenderer _sr;
@@ -28,14 +29,16 @@ namespace Gisha.GameOff_2021
 
         private void Update()
         {
-            if (_controller.Velocity.magnitude > 0)
+            _hInput = Input.GetAxisRaw("Horizontal");
+
+            if (Mathf.Abs(_hInput) > 0)
                 _animator.SetBool("IsRunning", true);
             else
                 _animator.SetBool("IsRunning", false);
 
-            if (_controller.Velocity.x > 0)
+            if (_hInput > 0)
                 _sr.flipX = false;
-            else if (_controller.Velocity.x < 0)
+            else if (_hInput < 0)
                 _sr.flipX = true;
         }
 
