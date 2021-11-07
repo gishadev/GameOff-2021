@@ -1,3 +1,4 @@
+using Gisha.GameOff_2021.Interactive;
 using UnityEngine;
 
 namespace Gisha.GameOff_2021.Player
