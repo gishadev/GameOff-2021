@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -16,6 +17,9 @@ namespace Gisha.GameOff_2021
         [SerializeField] private float groundCheckerRadius = 0.25f;
         [SerializeField] private float afterJumpCheckDelay = 0.1f;
         [Space] [SerializeField] private ControlBehaviour _controlBehaviour;
+
+        public Vector2 Velocity => _rb.velocity;
+        public Action OnPlayerJumped { set; get; }
 
         private bool _isControlMode;
         private float _coyoteCounter;
@@ -72,27 +76,27 @@ namespace Gisha.GameOff_2021
             else
                 _bufferCounter -= Time.deltaTime;
 
-            // Making full jump.
+            // Make Jump.
             if (_bufferCounter > 0 && _coyoteCounter > 0)
-            {
-                MakeFullJump();
+                Jump();
 
-                _bufferCounter = 0;
-                StopAllCoroutines();
-                StartCoroutine(GroundCheckCoroutineWithDelay(afterJumpCheckDelay));
-            }
-
-            // Making half jump.
+            // Shorten jump height.
             if (Input.GetKeyUp(KeyCode.Space) && _rb.velocity.y > 0)
                 _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
         }
 
-        private void MakeFullJump()
+        private void Jump()
         {
+            _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+
             _isGrounded = false;
             _coyoteCounter = 0;
+            _bufferCounter = 0;
 
-            _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+            StopAllCoroutines();
+            StartCoroutine(GroundCheckCoroutineWithDelay(afterJumpCheckDelay));
+
+            OnPlayerJumped.Invoke();
         }
 
         private IEnumerator GroundCheckCoroutine()
@@ -130,7 +134,7 @@ namespace Gisha.GameOff_2021
                 for (int i = 0; i < coll.Length; i++)
                 {
                     coll[i].gameObject.TryGetComponent(out Controllable controllable);
-                    
+
                     if (controllable != null)
                         controllable.InteractAction();
                 }
