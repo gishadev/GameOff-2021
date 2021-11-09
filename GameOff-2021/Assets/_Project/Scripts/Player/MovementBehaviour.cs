@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace Gisha.GameOff_2021.Player
 {
-    public class MovementBehaviour : PlayerBehaviour
+    internal class MovementBehaviour : PlayerBehaviour
     {
         [SerializeField] private float moveSpeed = 500f;
         [SerializeField] private float jumpForce = 23f;
@@ -13,10 +13,12 @@ namespace Gisha.GameOff_2021.Player
 
         [Header("Ground Checker")] [SerializeField]
         private Transform groundCheckerPoint;
-
         [SerializeField] private float groundCheckerRadius = 0.31f;
         [SerializeField] private float afterJumpCheckDelay = 0.1f;
 
+        [Space]
+        [SerializeField] private PhysicsMaterial2D maxFrictionMaterial;
+        
         public Vector2 Velocity => _rb.velocity;
         public Action OnPlayerJumped { set; get; }
         
@@ -25,11 +27,13 @@ namespace Gisha.GameOff_2021.Player
         private LayerMask _groundLayer;
         private bool _isGrounded = true;
         private float _hInput;
-        
-        private Rigidbody2D _rb;
 
+        private Rigidbody2D _rb;
+        private Collider2D _coll;
+        
         private void Awake()
         {
+            _coll = GetComponent<Collider2D>();
             _rb = GetComponent<Rigidbody2D>();
             _groundLayer = 1 << LayerMask.NameToLayer("Ground");
         }
@@ -48,7 +52,12 @@ namespace Gisha.GameOff_2021.Player
         {
             _rb.velocity = new Vector2(_hInput * moveSpeed * Time.deltaTime, _rb.velocity.y);
         }
-        
+
+        public override void ResetOnBehaviourChange()
+        {
+            _coll.sharedMaterial = maxFrictionMaterial;
+        }
+
         private void HandleInput()
         {
             _hInput = Input.GetAxis("Horizontal");

@@ -1,12 +1,9 @@
-using System;
 using UnityEngine;
 
 namespace Gisha.GameOff_2021.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        public PlayerBehaviour PlayerBehaviour { get; private set; }
-
         private PlayerBehaviour[] _behaviours;
 
         private void Awake()
@@ -26,6 +23,7 @@ namespace Gisha.GameOff_2021.Player
         public void SwitchBehaviour()
         {
             PlayerBehaviour temp = _behaviours[0];
+            temp.ResetOnBehaviourChange();
 
             // Enabling right one behaviour.
             _behaviours[0].enabled = false;

@@ -30338,6 +30338,7 @@ MonoBehaviour:
   groundCheckerPoint: {fileID: 1127139844}
   groundCheckerRadius: 0.31
   afterJumpCheckDelay: 0.1
+  maxFrictionMaterial: {fileID: 6200000, guid: bdbff19039eaaa949be204d2e25e53e1, type: 2}
 --- !u!1 &450522572
 GameObject:
   m_ObjectHideFlags: 0
