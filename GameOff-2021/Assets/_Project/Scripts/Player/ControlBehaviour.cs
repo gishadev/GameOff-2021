@@ -26,6 +26,8 @@ namespace Gisha.GameOff_2021.Player
         public override void ResetOnBehaviourChange()
         {
             _coll.sharedMaterial = zeroFrictionMaterial;
+            
+            ControllablesUIManager.RemoveControllableUIElements();
         }
 
         public void HandleInput()
