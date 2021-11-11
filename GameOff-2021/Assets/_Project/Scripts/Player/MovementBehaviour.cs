@@ -59,7 +59,7 @@ namespace Gisha.GameOff_2021.Player
             _coll.sharedMaterial = maxFrictionMaterial;
 
             var controllables = FindObjectsOfType<Controllable>();
-            ControllablesUIManager.SpawnControllableUIElements(controllables);
+            ControllablesVisualizer.SpawnControllableVisuals(controllables);
         }
 
         private void HandleInput()
