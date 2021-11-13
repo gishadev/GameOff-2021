@@ -8,9 +8,7 @@ namespace Gisha.GameOff_2021
     public class ControllablesVisualizer : MonoBehaviour
     {
         private static ControllablesVisualizer Instance { get; set; }
-
-        [SerializeField] private GameObject controllableVisualPrefab;
-
+        
         private List<GameObject> controllableVisualsList = new List<GameObject>();
 
         private void Awake()
@@ -25,8 +23,8 @@ namespace Gisha.GameOff_2021
                 if (controllables[i] == null)
                     continue;
 
-                var element = Instantiate(Instance.controllableVisualPrefab, Instance.transform);
-                Instance.StartCoroutine(Instance.UpdateVisualPosition(controllables[i], element.transform));
+                var element = Instantiate(controllables[i].VisualElementPrefab, Instance.transform);
+                Instance.StartCoroutine(UpdateVisualPositionCoroutine(controllables[i], element.transform));
 
                 Instance.controllableVisualsList.Add(element);
             }
@@ -44,7 +42,7 @@ namespace Gisha.GameOff_2021
             }
         }
 
-        private IEnumerator UpdateVisualPosition(Controllable controllable, Transform visual)
+        private static IEnumerator UpdateVisualPositionCoroutine(Controllable controllable, Transform visual)
         {
             while (true)
             {
