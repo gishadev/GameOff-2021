@@ -33674,6 +33674,14 @@ PrefabInstance:
       propertyPath: speed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 891884494736543320, guid: a673520543b362a4f843f897b90c5c63, type: 3}
+      propertyPath: maxHeight
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 891884494736543320, guid: a673520543b362a4f843f897b90c5c63, type: 3}
+      propertyPath: minHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 891884494736543322, guid: a673520543b362a4f843f897b90c5c63, type: 3}
       propertyPath: m_RootOrder
       value: 8
