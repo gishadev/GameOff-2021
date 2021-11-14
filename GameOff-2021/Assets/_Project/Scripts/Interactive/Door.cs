@@ -6,6 +6,8 @@ namespace Gisha.GameOff_2021.Interactive
     {
         private Animator _animator;
         private Collider2D _collider;
+
+        private bool _isOpened = false;
         
         private void Awake()
         {
@@ -20,8 +22,9 @@ namespace Gisha.GameOff_2021.Interactive
         
         public void OnClick_TriggerBtn()
         {
-            _animator.SetTrigger("Open");
-            _collider.enabled = false;
+            _isOpened = !_isOpened;
+            _animator.SetBool("IsOpened", _isOpened);
+            _collider.enabled = !_isOpened;
         }
     }
 }

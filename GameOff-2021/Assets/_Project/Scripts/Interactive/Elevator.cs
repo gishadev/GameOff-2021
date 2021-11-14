@@ -20,6 +20,7 @@ namespace Gisha.GameOff_2021.Interactive
         protected override void OnAddInteractActions()
         {
             InteractActions.Add(OnClick_RightBtn);
+            InteractActions.Add(OnClick_StopBtn);
             InteractActions.Add(OnClick_LeftBtn);
         }
 
@@ -33,6 +34,17 @@ namespace Gisha.GameOff_2021.Interactive
         {
             _isWorking = true;
             _yDirection = 1f;
+        }
+
+        public void OnClick_StopBtn()
+        {
+            Stop();
+        }
+
+        private void Stop()
+        {
+            _isWorking = false;
+            _yDirection = 0f;
         }
     }
 }
