@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Gisha.GameOff_2021.Interactive;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Gisha.GameOff_2021
 {
     public class ControllablesVisualizer : MonoBehaviour
     {
         private static ControllablesVisualizer Instance { get; set; }
-        
+
         private List<GameObject> controllableVisualsList = new List<GameObject>();
 
         private void Awake()
@@ -23,10 +24,16 @@ namespace Gisha.GameOff_2021
                 if (controllables[i] == null)
                     continue;
 
-                var element = Instantiate(controllables[i].VisualElementPrefab, Instance.transform);
-                Instance.StartCoroutine(UpdateVisualPositionCoroutine(controllables[i], element.transform));
+                // Instantiate visual object.
+                var visualObject = Instantiate(controllables[i].VisualElementPrefab, Instance.transform);
+                Instance.StartCoroutine(UpdateVisualPositionCoroutine(controllables[i], visualObject.transform));
 
-                Instance.controllableVisualsList.Add(element);
+                // Initialize visual element and connect it to certain controllable.
+                var buttons = visualObject.GetComponentsInChildren<Button>();
+                var visualElement = new ControllableVisualElement(controllables[i], buttons);
+                visualElement.ConnectUIToControllable();
+
+                Instance.controllableVisualsList.Add(visualObject);
             }
         }
 
@@ -48,6 +55,27 @@ namespace Gisha.GameOff_2021
             {
                 visual.position = controllable.transform.position;
                 yield return null;
+            }
+        }
+    }
+
+    public class ControllableVisualElement
+    {
+        private Button[] _buttons;
+        private Controllable _controllable;
+
+        public ControllableVisualElement(Controllable controllable, Button[] buttons)
+        {
+            _controllable = controllable;
+            _buttons = buttons;
+        }
+
+        public void ConnectUIToControllable()
+        {
+            for (var i = 0; i < _buttons.Length; i++)
+            {
+                var button = _buttons[i];
+                button.onClick.AddListener(_controllable.InteractActions[i]);
             }
         }
     }
