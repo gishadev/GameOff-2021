@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Gisha.GameOff_2021.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,17 +14,28 @@ namespace Gisha.GameOff_2021
         private Queue<LevelBounds> _levelBoundsQueue = new Queue<LevelBounds>();
 
         private CameraFollowController _cameraFollow;
+        private PlayerController _player;
 
         private void Awake()
         {
             Instance = this;
             _cameraFollow = Camera.main.GetComponent<CameraFollowController>();
+            _player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         }
 
         private void Start()
         {
             InsertAllLevelBoundsToQueue();
             _cameraFollow.SetLevelBounds(_levelBoundsQueue.Peek());
+        }
+
+        private void LateUpdate()
+        {
+            if (_player.transform.position.x > _levelBoundsQueue.Peek().RightBound.position.x)
+            {
+                _levelBoundsQueue.Dequeue();
+                _cameraFollow.SetLevelBounds(_levelBoundsQueue.Peek());
+            }
         }
 
         private void InsertAllLevelBoundsToQueue()
