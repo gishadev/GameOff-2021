@@ -6,8 +6,14 @@ namespace Gisha.GameOff_2021
     {
         [SerializeField] private Transform followTarget;
         [SerializeField] private float followSpeed;
-        
+
         private float _viewableWidth;
+        private LevelBounds _levelBounds;
+
+        public void SetLevelBounds(LevelBounds levelBounds)
+        {
+            _levelBounds = levelBounds;
+        }
 
         private void Start()
         {
@@ -23,7 +29,7 @@ namespace Gisha.GameOff_2021
         {
             Vector3 newPosition = new Vector3(followTarget.position.x, transform.position.y, transform.position.z);
             newPosition.x = AttachXToBounds(newPosition.x);
-            
+
             transform.position = Vector3.Lerp(transform.position, newPosition, followSpeed * Time.deltaTime);
         }
 
@@ -31,11 +37,11 @@ namespace Gisha.GameOff_2021
         {
             float result = xPos;
 
-            if (xPos + _viewableWidth > LevelBounds.RightBound.position.x)
-                result = LevelBounds.RightBound.position.x - _viewableWidth;
+            if (xPos + _viewableWidth > _levelBounds.RightBound.position.x)
+                result = _levelBounds.RightBound.position.x - _viewableWidth;
 
-            if (xPos - _viewableWidth < LevelBounds.LeftBound.position.x)
-                result = LevelBounds.LeftBound.position.x + _viewableWidth;
+            if (xPos - _viewableWidth < _levelBounds.LeftBound.position.x)
+                result = _levelBounds.LeftBound.position.x + _viewableWidth;
 
             return result;
         }
