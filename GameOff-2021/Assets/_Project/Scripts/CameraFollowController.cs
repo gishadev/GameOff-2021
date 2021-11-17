@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Gisha.GameOff_2021
@@ -7,10 +6,7 @@ namespace Gisha.GameOff_2021
     {
         [SerializeField] private Transform followTarget;
         [SerializeField] private float followSpeed;
-
-        [Header("Bounds")] [SerializeField] private Transform leftBound;
-        [SerializeField] private Transform rightBound;
-
+        
         private float _viewableWidth;
 
         private void Start()
@@ -35,11 +31,11 @@ namespace Gisha.GameOff_2021
         {
             float result = xPos;
 
-            if (xPos + _viewableWidth > rightBound.position.x)
-                result = rightBound.position.x - _viewableWidth;
+            if (xPos + _viewableWidth > LevelBounds.RightBound.position.x)
+                result = LevelBounds.RightBound.position.x - _viewableWidth;
 
-            if (xPos - _viewableWidth < leftBound.position.x)
-                result = leftBound.position.x + _viewableWidth;
+            if (xPos - _viewableWidth < LevelBounds.LeftBound.position.x)
+                result = LevelBounds.LeftBound.position.x + _viewableWidth;
 
             return result;
         }
