@@ -5,19 +5,23 @@ namespace Gisha.GameOff_2021.Interactive
 {
     public class Elevator : Controllable, IUITwoAxisControl
     {
-        [SerializeField] private float speed;
-        [SerializeField] private float maxHeight, minHeight;
+        [SerializeField] private Vector2 moveDirection;
+        [SerializeField] private float moveSpeed;
+        [SerializeField] private float maxDist, minDist;
 
         private bool _isWorking = false;
-        private float _yDirection = 0f;
+        private Vector2 _straightDir = Vector2.one;
         private Vector3 _startPos;
-        private float _maxAbsHeight, _minAbsHeight;
+        private float _maxAbsYDist, _minAbsYDist;
+        private float _maxAbsXDist, _minAbsXDist;
 
         private void Awake()
         {
             _startPos = transform.position;
-            _maxAbsHeight = _startPos.y + maxHeight;
-            _minAbsHeight = _startPos.y + minHeight;
+            _maxAbsYDist = _startPos.y + maxDist * moveDirection.y + 0.02f;
+            _minAbsYDist = _startPos.y + minDist * moveDirection.y - 0.02f;
+            _maxAbsXDist = _startPos.x + maxDist * moveDirection.x + 0.02f;
+            _minAbsXDist = _startPos.x + minDist * moveDirection.x - 0.02f;
         }
 
         private void Update()
@@ -25,9 +29,9 @@ namespace Gisha.GameOff_2021.Interactive
             if (!_isWorking)
                 return;
 
-            var yDir = transform.position.y + 0.1f * _yDirection;
-            if (yDir < _maxAbsHeight && yDir > _minAbsHeight)
-                transform.Translate(Vector2.up * speed * _yDirection * Time.deltaTime);
+            var sDir = (Vector2) transform.position + moveDirection * 0.1f * _straightDir;
+            if (sDir.y < _maxAbsYDist && sDir.y > _minAbsYDist && sDir.x < _maxAbsXDist && sDir.x > _minAbsXDist)
+                transform.Translate(moveDirection * moveSpeed * _straightDir * Time.deltaTime);
             else
                 Stop();
         }
@@ -42,13 +46,13 @@ namespace Gisha.GameOff_2021.Interactive
         public void OnClick_LeftBtn()
         {
             _isWorking = true;
-            _yDirection = -1f;
+            _straightDir = -Vector2.one;
         }
 
         public void OnClick_RightBtn()
         {
             _isWorking = true;
-            _yDirection = 1f;
+            _straightDir = Vector2.one;
         }
 
         public void OnClick_StopBtn()
@@ -59,7 +63,7 @@ namespace Gisha.GameOff_2021.Interactive
         private void Stop()
         {
             _isWorking = false;
-            _yDirection = 0f;
+            _straightDir = Vector2.zero;
         }
 
         private void OnDrawGizmos()
@@ -67,14 +71,14 @@ namespace Gisha.GameOff_2021.Interactive
             if (!Application.isPlaying)
             {
                 Gizmos.color = Color.red;
-                Gizmos.DrawWireSphere(transform.position + Vector3.up * maxHeight, 0.5f);
-                Gizmos.DrawWireSphere(transform.position + Vector3.up * minHeight, 0.5f);
+                Gizmos.DrawWireSphere((Vector2) transform.position + moveDirection * maxDist, 0.5f);
+                Gizmos.DrawWireSphere((Vector2) transform.position + moveDirection * minDist, 0.5f);
             }
             else
             {
                 Gizmos.color = Color.blue;
-                Gizmos.DrawWireSphere(_startPos + Vector3.up * maxHeight, 0.5f);
-                Gizmos.DrawWireSphere(_startPos + Vector3.up * minHeight, 0.5f);
+                Gizmos.DrawWireSphere((Vector2) _startPos + moveDirection * maxDist, 0.5f);
+                Gizmos.DrawWireSphere((Vector2) _startPos + moveDirection * minDist, 0.5f);
             }
         }
     }
