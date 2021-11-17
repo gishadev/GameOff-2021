@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6627616933790021533
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 891884494736543320, guid: a673520543b362a4f843f897b90c5c63, type: 3}
+      propertyPath: maxDist
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 891884494736543320, guid: a673520543b362a4f843f897b90c5c63, type: 3}
+      propertyPath: minDist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 891884494736543322, guid: a673520543b362a4f843f897b90c5c63, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 891884494736543322, guid: a673520543b362a4f843f897b90c5c63, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 891884494736543322, guid: a673520543b362a4f843f897b90c5c63, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.134218
+      objectReference: {fileID: 0}
+    - target: {fileID: 891884494736543322, guid: a673520543b362a4f843f897b90c5c63, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 891884494736543322, guid: a673520543b362a4f843f897b90c5c63, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 891884494736543322, guid: a673520543b362a4f843f897b90c5c63, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 891884494736543322, guid: a673520543b362a4f843f897b90c5c63, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 891884494736543322, guid: a673520543b362a4f843f897b90c5c63, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 891884494736543322, guid: a673520543b362a4f843f897b90c5c63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 891884494736543322, guid: a673520543b362a4f843f897b90c5c63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 891884494736543322, guid: a673520543b362a4f843f897b90c5c63, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 891884494736543324, guid: a673520543b362a4f843f897b90c5c63, type: 3}
+      propertyPath: m_Name
+      value: Default Elevator
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a673520543b362a4f843f897b90c5c63, type: 3}

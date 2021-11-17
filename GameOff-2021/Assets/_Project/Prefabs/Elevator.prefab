@@ -125,5 +125,5 @@ MonoBehaviour:
   visualElementPrefab: {fileID: 8480797828463714687, guid: ca681ae77bc606a4c8ed62a54765d746, type: 3}
   moveDirection: {x: 0, y: 1}
   moveSpeed: 1.5
-  maxDist: 7
-  minDist: 0
+  maxDist: 5
+  minDist: -5
