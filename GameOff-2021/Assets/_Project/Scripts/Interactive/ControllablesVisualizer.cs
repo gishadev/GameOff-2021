@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Gisha.GameOff_2021.Interactive;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Gisha.GameOff_2021
+namespace Gisha.GameOff_2021.Interactive
 {
     public class ControllablesVisualizer : MonoBehaviour
     {

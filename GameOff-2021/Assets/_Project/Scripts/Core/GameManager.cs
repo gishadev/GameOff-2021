@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Gisha.GameOff_2021.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Gisha.GameOff_2021
+namespace Gisha.GameOff_2021.Core
 {
     public class GameManager : MonoBehaviour
     {

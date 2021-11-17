@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gisha.GameOff_2021
+namespace Gisha.GameOff_2021.Utilities
 {
     public class ParallaxEffect : MonoBehaviour
     {

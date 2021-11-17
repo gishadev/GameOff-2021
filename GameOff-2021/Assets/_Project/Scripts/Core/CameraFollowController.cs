@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gisha.GameOff_2021
+namespace Gisha.GameOff_2021.Core
 {
     public class CameraFollowController : MonoBehaviour
     {
