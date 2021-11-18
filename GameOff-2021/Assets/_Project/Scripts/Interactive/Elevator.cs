@@ -7,7 +7,7 @@ namespace Gisha.GameOff_2021.Interactive
         [SerializeField] private Vector2 moveDirection;
         [SerializeField] private float moveSpeed;
         [SerializeField] private float maxDist, minDist;
-
+        
         private bool _isWorking = false;
         private Vector2 _straightDir = Vector2.one;
         private Vector3 _startPos;
@@ -28,11 +28,15 @@ namespace Gisha.GameOff_2021.Interactive
             if (!_isWorking)
                 return;
 
-            var sDir = (Vector2) transform.position + moveDirection * 0.1f * _straightDir;
-            if (sDir.y < _maxAbsYDist && sDir.y > _minAbsYDist && sDir.x < _maxAbsXDist && sDir.x > _minAbsXDist)
-                transform.Translate(moveDirection * moveSpeed * _straightDir * Time.deltaTime);
-            else
-                Stop();
+            HandleElevatorMovement();
+        }
+
+        private void FixedUpdate()
+        {
+            if (!_isWorking)
+                return;
+            
+            //HandlePassengersMovement();
         }
 
         protected override void OnAddInteractActions()
@@ -41,6 +45,8 @@ namespace Gisha.GameOff_2021.Interactive
             InteractActions.Add(OnClick_StopBtn);
             InteractActions.Add(OnClick_LeftBtn);
         }
+
+        #region OnClick Entries
 
         public void OnClick_LeftBtn()
         {
@@ -59,10 +65,31 @@ namespace Gisha.GameOff_2021.Interactive
             Stop();
         }
 
+        #endregion
+
+        private void HandleElevatorMovement()
+        {
+            var sDir = (Vector2) transform.position + moveDirection * 0.1f * _straightDir;
+            if (sDir.y < _maxAbsYDist && sDir.y > _minAbsYDist && sDir.x < _maxAbsXDist && sDir.x > _minAbsXDist)
+                transform.Translate(moveDirection * moveSpeed * _straightDir * Time.deltaTime);
+            else
+                Stop();
+        }
+
         private void Stop()
         {
             _isWorking = false;
             _straightDir = Vector2.zero;
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            other.transform.parent = transform;
+        }
+
+        private void OnCollisionExit2D(Collision2D other)
+        {
+            other.transform.parent = null;
         }
 
         private void OnDrawGizmos()
