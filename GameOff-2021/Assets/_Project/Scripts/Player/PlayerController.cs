@@ -1,3 +1,4 @@
+using Gisha.GameOff_2021.Core;
 using UnityEngine;
 
 namespace Gisha.GameOff_2021.Player
@@ -20,7 +21,7 @@ namespace Gisha.GameOff_2021.Player
                 SwitchBehaviour();
         }
 
-        public void SwitchBehaviour()
+        private void SwitchBehaviour()
         {
             PlayerBehaviour temp = _behaviours[0];
             temp.ResetOnBehaviourChange();
@@ -34,6 +35,12 @@ namespace Gisha.GameOff_2021.Player
             _behaviours[1] = temp;
 
             Debug.Log("Behaviour was switched!");
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.CompareTag("Obstacle"))
+                GameManager.RestartLocation();
         }
     }
 }

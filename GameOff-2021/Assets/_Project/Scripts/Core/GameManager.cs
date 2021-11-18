@@ -8,7 +8,8 @@ namespace Gisha.GameOff_2021.Core
 {
     public class GameManager : MonoBehaviour
     {
-        public static GameManager Instance { get; private set; }
+        [SerializeField] private string[] locationScenes;
+        private static GameManager Instance { get; set; }
 
         private Queue<LevelBounds> _levelBoundsQueue = new Queue<LevelBounds>();
 
@@ -35,6 +36,15 @@ namespace Gisha.GameOff_2021.Core
                 _levelBoundsQueue.Dequeue();
                 _cameraFollow.SetLevelBounds(_levelBoundsQueue.Peek());
             }
+        }
+
+        public static void RestartLocation()
+        {
+            SceneManager.LoadScene("Game");
+
+            var scenes = Instance.locationScenes;
+            foreach (var s in scenes)
+                SceneManager.LoadScene(s, LoadSceneMode.Additive);
         }
 
         private void InsertAllLevelBoundsToQueue()
