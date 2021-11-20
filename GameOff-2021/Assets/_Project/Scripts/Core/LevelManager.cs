@@ -10,8 +10,8 @@ namespace Gisha.GameOff_2021.Core
 
         public Transform RightBound => rightBound;
         public Transform LeftBound => leftBound;
-
-
+        public Transform Spawnpoint => spawnpoint;
+        
         [ContextMenu("Try Get Bounds")]
         private void TryGetBounds()
         {

@@ -12,6 +12,7 @@ namespace Gisha.GameOff_2021.Core
         private static GameManager Instance { get; set; }
 
         private Queue<LevelManager> _levelManagersQueue = new Queue<LevelManager>();
+        private LevelManager CurrentLevel => _levelManagersQueue.Peek();
 
         private CameraFollowController _cameraFollow;
         private PlayerController _player;
@@ -26,16 +27,14 @@ namespace Gisha.GameOff_2021.Core
         private void Start()
         {
             InsertAllLevelsToQueue();
-            _cameraFollow.SetLevel(_levelManagersQueue.Peek());
+            _cameraFollow.SetLevel(CurrentLevel);
         }
 
         private void LateUpdate()
         {
-            if (_player.transform.position.x > _levelManagersQueue.Peek().RightBound.position.x)
-            {
-                _levelManagersQueue.Dequeue();
-                _cameraFollow.SetLevel(_levelManagersQueue.Peek());
-            }
+            // If player is out from the right side > moving to next level. 
+            if (_player.transform.position.x > CurrentLevel.RightBound.position.x) 
+                MoveToNextLevel();
         }
 
         public static void RestartLocation()
@@ -47,6 +46,25 @@ namespace Gisha.GameOff_2021.Core
                 SceneManager.LoadScene(s, LoadSceneMode.Additive);
         }
 
+        public static void RespawnOnLevel(PlayerController player)
+        {
+            player.transform.position = Instance.CurrentLevel.Spawnpoint.position;
+        }
+
+        private void MoveToNextLevel()
+        {
+            // Check if the level was last one.
+            if (_levelManagersQueue.Count < 2)
+            {
+                Debug.Log("<color=green>Last level finished. Moving to the next location.</color>");
+                return;
+            }
+            
+            // Move to next level.
+            _levelManagersQueue.Dequeue();
+            _cameraFollow.SetLevel(CurrentLevel);
+        }
+        
         private void InsertAllLevelsToQueue()
         {
             // Get all scenes.

@@ -7,6 +7,8 @@ namespace Gisha.GameOff_2021.Player
     {
         private PlayerBehaviour[] _behaviours;
 
+        private int _lives = 3;
+
         private void Awake()
         {
             // Adding behaviours.
@@ -37,10 +39,21 @@ namespace Gisha.GameOff_2021.Player
             Debug.Log("Behaviour was switched!");
         }
 
-        private void OnTriggerExit2D(Collider2D other)
+        private void Die()
+        {
+            _lives--;
+            if (_lives > 0)
+            {
+                GameManager.RespawnOnLevel(this);
+            }
+            else
+                GameManager.RestartLocation();
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Obstacle"))
-                GameManager.RestartLocation();
+                Die();
         }
     }
 }
