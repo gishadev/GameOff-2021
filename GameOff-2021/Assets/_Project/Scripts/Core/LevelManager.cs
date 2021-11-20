@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Gisha.GameOff_2021.Core
 {
@@ -11,7 +12,8 @@ namespace Gisha.GameOff_2021.Core
         public Transform RightBound => rightBound;
         public Transform LeftBound => leftBound;
         public Transform Spawnpoint => spawnpoint;
-        
+        public Scene LevelScene => gameObject.scene;
+
         [ContextMenu("Try Get Bounds")]
         private void TryGetBounds()
         {

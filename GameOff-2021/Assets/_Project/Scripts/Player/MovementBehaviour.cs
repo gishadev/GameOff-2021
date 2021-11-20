@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using Gisha.GameOff_2021.Core;
 using Gisha.GameOff_2021.Interactive;
 
 namespace Gisha.GameOff_2021.Player
@@ -57,9 +58,8 @@ namespace Gisha.GameOff_2021.Player
         public override void ResetOnBehaviourChange()
         {
             _coll.sharedMaterial = maxFrictionMaterial;
-
-            var controllables = FindObjectsOfType<Controllable>();
-            ControllablesVisualizer.SpawnControllableVisuals(controllables);
+            
+            ControllablesVisualizer.SpawnControllableVisuals(GameManager.ControllableList);
         }
 
         private void HandleInput()

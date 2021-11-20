@@ -16,9 +16,9 @@ namespace Gisha.GameOff_2021.Interactive
             Instance = this;
         }
 
-        public static void SpawnControllableVisuals(Controllable[] controllables)
+        public static void SpawnControllableVisuals(List<Controllable> controllables)
         {
-            for (int i = 0; i < controllables.Length; i++)
+            for (int i = 0; i < controllables.Count; i++)
             {
                 if (controllables[i] == null)
                     continue;

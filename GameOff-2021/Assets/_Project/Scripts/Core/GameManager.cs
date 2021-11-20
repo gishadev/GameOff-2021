@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Gisha.GameOff_2021.Interactive;
 using Gisha.GameOff_2021.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,9 +13,15 @@ namespace Gisha.GameOff_2021.Core
         [SerializeField] private string[] locationScenes;
         private static GameManager Instance { get; set; }
 
+        /// <summary>
+        /// Action on level change, returns previous scene.
+        /// </summary>
+        public static Action<LevelManager> LevelChanged;
+
         private Queue<LevelManager> _levelManagersQueue = new Queue<LevelManager>();
         private LevelManager CurrentLevel => _levelManagersQueue.Peek();
 
+        public static List<Controllable> ControllableList { get; set; }
         private CameraFollowController _cameraFollow;
         private PlayerController _player;
 
@@ -28,12 +36,13 @@ namespace Gisha.GameOff_2021.Core
         {
             InsertAllLevelsToQueue();
             _cameraFollow.SetLevel(CurrentLevel);
+            ControllableList = FindObjectsOfType<Controllable>().ToList();
         }
 
         private void LateUpdate()
         {
             // If player is out from the right side > moving to next level. 
-            if (_player.transform.position.x > CurrentLevel.RightBound.position.x) 
+            if (_player.transform.position.x > CurrentLevel.RightBound.position.x)
                 MoveToNextLevel();
         }
 
@@ -59,12 +68,13 @@ namespace Gisha.GameOff_2021.Core
                 Debug.Log("<color=green>Last level finished. Moving to the next location.</color>");
                 return;
             }
-            
+
             // Move to next level.
+            LevelChanged?.Invoke(CurrentLevel);
             _levelManagersQueue.Dequeue();
             _cameraFollow.SetLevel(CurrentLevel);
         }
-        
+
         private void InsertAllLevelsToQueue()
         {
             // Get all scenes.

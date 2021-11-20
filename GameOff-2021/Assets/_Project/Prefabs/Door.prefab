@@ -143,3 +143,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualElementPrefab: {fileID: 8480797828463714687, guid: 40ef7b1e98015a54fad6b74aef966d86, type: 3}
+  _isEnterDoor: 1
