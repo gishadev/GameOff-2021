@@ -11,7 +11,7 @@ namespace Gisha.GameOff_2021.Core
         [SerializeField] private string[] locationScenes;
         private static GameManager Instance { get; set; }
 
-        private Queue<LevelBounds> _levelBoundsQueue = new Queue<LevelBounds>();
+        private Queue<LevelManager> _levelManagersQueue = new Queue<LevelManager>();
 
         private CameraFollowController _cameraFollow;
         private PlayerController _player;
@@ -25,16 +25,16 @@ namespace Gisha.GameOff_2021.Core
 
         private void Start()
         {
-            InsertAllLevelBoundsToQueue();
-            _cameraFollow.SetLevelBounds(_levelBoundsQueue.Peek());
+            InsertAllLevelsToQueue();
+            _cameraFollow.SetLevel(_levelManagersQueue.Peek());
         }
 
         private void LateUpdate()
         {
-            if (_player.transform.position.x > _levelBoundsQueue.Peek().RightBound.position.x)
+            if (_player.transform.position.x > _levelManagersQueue.Peek().RightBound.position.x)
             {
-                _levelBoundsQueue.Dequeue();
-                _cameraFollow.SetLevelBounds(_levelBoundsQueue.Peek());
+                _levelManagersQueue.Dequeue();
+                _cameraFollow.SetLevel(_levelManagersQueue.Peek());
             }
         }
 
@@ -47,7 +47,7 @@ namespace Gisha.GameOff_2021.Core
                 SceneManager.LoadScene(s, LoadSceneMode.Additive);
         }
 
-        private void InsertAllLevelBoundsToQueue()
+        private void InsertAllLevelsToQueue()
         {
             // Get all scenes.
             var scenes = new Scene[SceneManager.sceneCount];
@@ -63,13 +63,13 @@ namespace Gisha.GameOff_2021.Core
                 .ToArray();
 
             // Get Level Bounds.
-            var allBounds = FindObjectsOfType<LevelBounds>();
+            var allBounds = FindObjectsOfType<LevelManager>();
 
             // Insert in queue.
             foreach (var s in scenes)
             foreach (var b in allBounds)
                 if (b.gameObject.scene == s)
-                    _levelBoundsQueue.Enqueue(b);
+                    _levelManagersQueue.Enqueue(b);
         }
     }
 }

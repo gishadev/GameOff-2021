@@ -8,11 +8,11 @@ namespace Gisha.GameOff_2021.Core
         [SerializeField] private float followSpeed;
 
         private float _viewableWidth;
-        private LevelBounds _levelBounds;
+        private LevelManager _currentLevel;
 
-        public void SetLevelBounds(LevelBounds levelBounds)
+        public void SetLevel(LevelManager levelManager)
         {
-            _levelBounds = levelBounds;
+            _currentLevel = levelManager;
         }
 
         private void Start()
@@ -37,11 +37,11 @@ namespace Gisha.GameOff_2021.Core
         {
             float result = xPos;
 
-            if (xPos + _viewableWidth > _levelBounds.RightBound.position.x)
-                result = _levelBounds.RightBound.position.x - _viewableWidth;
+            if (xPos + _viewableWidth > _currentLevel.RightBound.position.x)
+                result = _currentLevel.RightBound.position.x - _viewableWidth;
 
-            if (xPos - _viewableWidth < _levelBounds.LeftBound.position.x)
-                result = _levelBounds.LeftBound.position.x + _viewableWidth;
+            if (xPos - _viewableWidth < _currentLevel.LeftBound.position.x)
+                result = _currentLevel.LeftBound.position.x + _viewableWidth;
 
             return result;
         }
