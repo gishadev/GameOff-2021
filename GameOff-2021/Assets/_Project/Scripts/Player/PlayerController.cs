@@ -1,4 +1,5 @@
 using Gisha.GameOff_2021.Core;
+using Gisha.GameOff_2021.GUI;
 using UnityEngine;
 
 namespace Gisha.GameOff_2021.Player
@@ -7,7 +8,7 @@ namespace Gisha.GameOff_2021.Player
     {
         private PlayerBehaviour[] _behaviours;
 
-        private int _lives = 3;
+        private int _lives = 4;
 
         private void Awake()
         {
@@ -42,6 +43,7 @@ namespace Gisha.GameOff_2021.Player
         private void Die()
         {
             _lives--;
+            HealthGUI.ChangeHPCount(_lives);
             if (_lives > 0)
             {
                 GameManager.RespawnOnLevel(this);

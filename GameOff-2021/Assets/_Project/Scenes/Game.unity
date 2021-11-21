@@ -1101,6 +1101,7 @@ GameObject:
   - component: {fileID: 1827253535}
   - component: {fileID: 1827253536}
   - component: {fileID: 1827253537}
+  - component: {fileID: 1827253538}
   m_Layer: 5
   m_Name: HP_Group
   m_TagString: Untagged
@@ -1170,6 +1171,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 0
+--- !u!114 &1827253538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827253534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7997264177548619cfca9bf7519f561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &493290987225297215
 PrefabInstance:
   m_ObjectHideFlags: 0
