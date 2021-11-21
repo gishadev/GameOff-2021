@@ -30,7 +30,9 @@ namespace Gisha.GameOff_2021.Core
             Instance = this;
             _cameraFollow = Camera.main.GetComponent<CameraFollowController>();
             _player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+#if !UNITY_EDITOR
             LoadLocation();
+#endif
         }
 
         private void Start()
