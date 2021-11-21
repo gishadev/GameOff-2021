@@ -30,13 +30,14 @@ namespace Gisha.GameOff_2021.Core
             Instance = this;
             _cameraFollow = Camera.main.GetComponent<CameraFollowController>();
             _player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+            LoadLocation();
         }
 
         private void Start()
         {
+            ControllableList = FindObjectsOfType<Controllable>().ToList();
             InsertAllLevelsToQueue();
             _cameraFollow.SetLevel(CurrentLevel);
-            ControllableList = FindObjectsOfType<Controllable>().ToList();
         }
 
         private void LateUpdate()
@@ -44,6 +45,12 @@ namespace Gisha.GameOff_2021.Core
             // If player is out from the right side > moving to next level. 
             if (_player.transform.position.x > CurrentLevel.RightBound.position.x)
                 MoveToNextLevel();
+        }
+
+        private void LoadLocation()
+        {
+            foreach (var s in locationScenes)
+                SceneManager.LoadScene(s, LoadSceneMode.Additive);
         }
 
         public static void RestartLocation()
