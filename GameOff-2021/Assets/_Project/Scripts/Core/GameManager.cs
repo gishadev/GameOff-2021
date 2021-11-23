@@ -45,16 +45,29 @@ namespace Gisha.GameOff_2021.Core
         private void LateUpdate()
         {
             // If player is out from the level side > moving to next level. 
+            if (IsPassedLevel(_player.transform.position))
+                MoveToNextLevel();
+        }
+
+        private bool IsPassedLevel(Vector3 playerPos)
+        {
+            // If player is out from the level side > moving to next level. 
             if (!CurrentLevel.IsVerticalExit)
             {
-                if (_player.transform.position.x > CurrentLevel.RightBound.position.x)
-                    MoveToNextLevel();
+                if (!CurrentLevel.IsReversedExit && playerPos.x > CurrentLevel.RightBound.position.x)
+                    return true;
+                if (CurrentLevel.IsReversedExit && playerPos.x < CurrentLevel.LeftBound.position.x)
+                    return true;
             }
             else
             {
-                if (_player.transform.position.y > CurrentLevel.RightBound.position.y)
-                    MoveToNextLevel();
+                if (!CurrentLevel.IsReversedExit && playerPos.y > CurrentLevel.RightBound.position.y)
+                    return true;
+                if (CurrentLevel.IsReversedExit && playerPos.y < CurrentLevel.LeftBound.position.y)
+                    return true;
             }
+
+            return false;
         }
 
         private void LoadLocation()
