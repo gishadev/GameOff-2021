@@ -889,6 +889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aheadAmount: 4
   aheadSpeed: 4
+  verticalSpeed: 0.1
 --- !u!1 &1127139843
 GameObject:
   m_ObjectHideFlags: 0

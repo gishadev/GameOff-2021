@@ -8,6 +8,7 @@ namespace Gisha.GameOff_2021.Core
     public class CameraTargetController : MonoBehaviour
     {
         [SerializeField] private float aheadAmount, aheadSpeed;
+        [SerializeField] private float verticalSpeed;
 
         private void Update()
         {
@@ -15,8 +16,9 @@ namespace Gisha.GameOff_2021.Core
             {
                 float xPos = Mathf.Lerp(transform.localPosition.x, aheadAmount * Input.GetAxisRaw("Horizontal"),
                     Time.deltaTime * aheadSpeed);
+                float yPos = Mathf.Lerp(transform.localPosition.y, 0f, Time.deltaTime * verticalSpeed);
 
-                transform.localPosition = new Vector3(xPos, transform.position.y,
+                transform.localPosition = new Vector3(xPos, yPos,
                     transform.position.z);
             }
         }
