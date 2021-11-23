@@ -15237,3 +15237,64 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!1001 &8448799949515077550
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7164611810249830921, guid: 55cb3a4bd8a600142bd51521ca82db20, type: 3}
+      propertyPath: visualElementPrefab
+      value: 
+      objectReference: {fileID: 8480797828463714687, guid: 63d30d5ab16315e44aab6eac577a36c1, type: 3}
+    - target: {fileID: 8448799948215442849, guid: 55cb3a4bd8a600142bd51521ca82db20, type: 3}
+      propertyPath: m_Name
+      value: Bomb
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448799948215442879, guid: 55cb3a4bd8a600142bd51521ca82db20, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448799948215442879, guid: 55cb3a4bd8a600142bd51521ca82db20, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448799948215442879, guid: 55cb3a4bd8a600142bd51521ca82db20, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 30.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448799948215442879, guid: 55cb3a4bd8a600142bd51521ca82db20, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448799948215442879, guid: 55cb3a4bd8a600142bd51521ca82db20, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448799948215442879, guid: 55cb3a4bd8a600142bd51521ca82db20, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448799948215442879, guid: 55cb3a4bd8a600142bd51521ca82db20, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448799948215442879, guid: 55cb3a4bd8a600142bd51521ca82db20, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448799948215442879, guid: 55cb3a4bd8a600142bd51521ca82db20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448799948215442879, guid: 55cb3a4bd8a600142bd51521ca82db20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448799948215442879, guid: 55cb3a4bd8a600142bd51521ca82db20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 55cb3a4bd8a600142bd51521ca82db20, type: 3}
