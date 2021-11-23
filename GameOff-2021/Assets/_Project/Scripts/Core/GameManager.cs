@@ -44,9 +44,17 @@ namespace Gisha.GameOff_2021.Core
 
         private void LateUpdate()
         {
-            // If player is out from the right side > moving to next level. 
-            if (_player.transform.position.x > CurrentLevel.RightBound.position.x)
-                MoveToNextLevel();
+            // If player is out from the level side > moving to next level. 
+            if (!CurrentLevel.IsVerticalExit)
+            {
+                if (_player.transform.position.x > CurrentLevel.RightBound.position.x)
+                    MoveToNextLevel();
+            }
+            else
+            {
+                if (_player.transform.position.y > CurrentLevel.RightBound.position.y)
+                    MoveToNextLevel();
+            }
         }
 
         private void LoadLocation()
