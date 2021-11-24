@@ -19,12 +19,12 @@ namespace Gisha.GameOff_2021.Player
 
         private void OnEnable()
         {
-            _movementBehaviour.OnPlayerJumped += SetJumpAnimation;
+            _movementBehaviour.PlayerJumped += SetJumpAnimation;
         }
 
         private void OnDisable()
         {
-            _movementBehaviour.OnPlayerJumped -= SetJumpAnimation;
+            _movementBehaviour.PlayerJumped -= SetJumpAnimation;
         }
 
         private void Update()

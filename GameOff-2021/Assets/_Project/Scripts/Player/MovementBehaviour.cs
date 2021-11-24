@@ -15,15 +15,16 @@ namespace Gisha.GameOff_2021.Player
 
         [Header("Ground Checker")] [SerializeField]
         private Transform groundCheckerPoint;
+
         [SerializeField] private float groundCheckerRadius = 0.31f;
         [SerializeField] private float afterJumpCheckDelay = 0.1f;
 
-        [Space]
-        [SerializeField] private PhysicsMaterial2D maxFrictionMaterial;
-        
+        [Space] [SerializeField] private PhysicsMaterial2D maxFrictionMaterial;
+
         public Vector2 Velocity => _rb.velocity;
-        public Action OnPlayerJumped { set; get; }
-        
+        public Action PlayerJumped { set; get; }
+        private Action PlayerFell { set; get; }
+
         private float _coyoteCounter;
         private float _bufferCounter;
         private LayerMask _groundLayer;
@@ -32,7 +33,7 @@ namespace Gisha.GameOff_2021.Player
 
         private Rigidbody2D _rb;
         private Collider2D _coll;
-        
+
         private void Awake()
         {
             _coll = GetComponent<Collider2D>();
@@ -57,9 +58,18 @@ namespace Gisha.GameOff_2021.Player
 
         public override void ResetOnBehaviourChange()
         {
-            _coll.sharedMaterial = maxFrictionMaterial;
+            if (_isGrounded)
+                _coll.sharedMaterial = maxFrictionMaterial;
+            else
+                PlayerFell += OnFellOnGround;
             
             ControllablesVisualizer.SpawnControllableVisuals(GameManager.ControllableList);
+        }
+
+        private void OnFellOnGround()
+        {
+            _coll.sharedMaterial = maxFrictionMaterial;
+            PlayerFell -= OnFellOnGround;
         }
 
         private void HandleInput()
@@ -98,14 +108,22 @@ namespace Gisha.GameOff_2021.Player
             StopAllCoroutines();
             StartCoroutine(GroundCheckCoroutineWithDelay(afterJumpCheckDelay));
 
-            OnPlayerJumped.Invoke();
+            PlayerJumped.Invoke();
         }
 
         private IEnumerator GroundCheckCoroutine()
         {
+            bool once = false;
             while (true)
             {
                 _isGrounded = Physics2D.OverlapCircle(groundCheckerPoint.position, groundCheckerRadius, _groundLayer);
+
+                if (_isGrounded && !once)
+                {
+                    PlayerFell?.Invoke();
+                    once = true;
+                }
+
                 yield return null;
             }
         }
@@ -115,7 +133,7 @@ namespace Gisha.GameOff_2021.Player
             yield return new WaitForSeconds(delay);
             StartCoroutine(GroundCheckCoroutine());
         }
-        
+
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
