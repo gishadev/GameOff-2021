@@ -1,8 +1,9 @@
+using Gisha.GameOff_2021.Core;
 using UnityEngine;
 
 namespace Gisha.GameOff_2021.NPC
 {
-    public class Projectile : MonoBehaviour
+    public class Projectile : MonoBehaviour, IDestroyable
     {
         [SerializeField] private float lifeTime = 5f;
 
@@ -29,6 +30,11 @@ namespace Gisha.GameOff_2021.NPC
         {
             if (other.CompareTag("Player"))
                 Destroy(gameObject);
+        }
+
+        public void Destroy()
+        {
+            Destroy(gameObject);
         }
     }
 }

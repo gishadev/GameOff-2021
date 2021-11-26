@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
+using Gisha.GameOff_2021.Core;
 using UnityEngine;
 
 namespace Gisha.GameOff_2021.NPC
 {
-    public class Turret : MonoBehaviour
+    public class Turret : MonoBehaviour, IDestroyable
     {
         [Header("Turret Variables")] [SerializeField]
         private Transform shotPoint;
@@ -37,6 +38,11 @@ namespace Gisha.GameOff_2021.NPC
             Debug.Log("Turret shoot.");
             var proj = Instantiate(projectilePrefab, shotPoint.position, shotPoint.rotation).GetComponent<Projectile>();
             proj.OnSpawn(-shotPoint.right, projectileFlySpeed);
+        }
+
+        public void Destroy()
+        {
+            Destroy(gameObject);
         }
     }
 }

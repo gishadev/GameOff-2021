@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Gisha.GameOff_2021.Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IDestroyable
     {
         private PlayerBehaviour[] _behaviours;
 
@@ -56,6 +56,11 @@ namespace Gisha.GameOff_2021.Player
         {
             if (other.CompareTag("Obstacle"))
                 Die();
+        }
+
+        public void Destroy()
+        {
+            Die();
         }
     }
 }

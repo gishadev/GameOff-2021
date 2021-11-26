@@ -1,8 +1,9 @@
+using Gisha.GameOff_2021.Core;
 using UnityEngine;
 
 namespace Gisha.GameOff_2021.NPC
 {
-    public class MovingEnemy : MonoBehaviour
+    public class MovingEnemy : MonoBehaviour, IDestroyable
     {
         [SerializeField] private Vector2 moveDirection;
         [SerializeField] private float moveSpeed;
@@ -33,6 +34,11 @@ namespace Gisha.GameOff_2021.NPC
                 _rb.velocity = moveDirection * moveSpeed * _straightDir * Time.deltaTime;
             else
                 _straightDir *= -1;
+        }
+
+        public void Destroy()
+        {
+            Destroy(gameObject);
         }
 
         private void OnDrawGizmos()
