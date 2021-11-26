@@ -96,6 +96,8 @@ namespace Gisha.GameOff_2021.Core
             if (_levelManagersQueue.Count < 2)
             {
                 Debug.Log("<color=green>Last level finished. Moving to the next location.</color>");
+                // Loading final scene for now.
+                SceneManager.LoadScene(1);
                 return;
             }
 
