@@ -25,8 +25,7 @@ namespace Gisha.GameOff_2021.Interactive
         private void Explode()
         {
             Debug.Log("Boom!");
-
-            List<IDestroyable> destroyables = new List<IDestroyable>();
+            
             var colliders = Physics2D.OverlapCircleAll(transform.position, damageRadius);
 
             foreach (var coll in colliders)
