@@ -134,4 +134,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e17227c140338c47beccd1ca522bdbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualElementPrefab: {fileID: 0}
+  visualElementPrefab: {fileID: 8480797828463714687, guid: 63d30d5ab16315e44aab6eac577a36c1, type: 3}

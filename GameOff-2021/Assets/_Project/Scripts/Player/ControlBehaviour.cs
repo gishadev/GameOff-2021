@@ -27,7 +27,7 @@ namespace Gisha.GameOff_2021.Player
         {
             _coll.sharedMaterial = zeroFrictionMaterial;
             
-            ControllablesVisualizer.RemoveControllableUIElements();
+            ControllablesVisualizer.RemoveAllControllableUIElements();
         }
 
         // public void HandleInput()

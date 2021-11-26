@@ -25,6 +25,7 @@ namespace Gisha.GameOff_2021.Interactive
 
                 // Instantiate visual object.
                 var visualObject = Instantiate(controllables[i].VisualElementPrefab, Instance.transform);
+                controllables[i].visualElement = visualObject;
                 Instance.StartCoroutine(UpdateVisualPositionCoroutine(controllables[i], visualObject.transform));
 
                 // Initialize visual element and connect it to certain controllable.
@@ -36,7 +37,7 @@ namespace Gisha.GameOff_2021.Interactive
             }
         }
 
-        public static void RemoveControllableUIElements()
+        public static void RemoveAllControllableUIElements()
         {
             var list = Instance.controllableVisualsList;
             Instance.StopAllCoroutines();
@@ -48,10 +49,22 @@ namespace Gisha.GameOff_2021.Interactive
             }
         }
 
+        public static void RemoveControllableUIElement(GameObject visualElement)
+        {
+            var list = Instance.controllableVisualsList;
+            var index = list.IndexOf(visualElement);
+
+            if (index != -1)
+                list.RemoveAt(index);
+        }
+
         private static IEnumerator UpdateVisualPositionCoroutine(Controllable controllable, Transform visual)
         {
             while (true)
             {
+                if (controllable == null)
+                    yield break;
+
                 visual.position = controllable.transform.position;
                 yield return null;
             }
