@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Gisha.GameOff_2021.Core;
 using UnityEngine;
