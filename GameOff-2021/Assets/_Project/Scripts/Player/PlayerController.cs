@@ -40,7 +40,7 @@ namespace Gisha.GameOff_2021.Player
             Debug.Log("Behaviour was switched!");
         }
 
-        private void Die()
+        public void Die()
         {
             _lives--;
             HealthGUI.ChangeHPCount(_lives);
