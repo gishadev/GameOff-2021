@@ -133,12 +133,12 @@ GameObject:
   m_Component:
   - component: {fileID: 187455843}
   - component: {fileID: 187455844}
-  - component: {fileID: 187455847}
   - component: {fileID: 187455845}
   - component: {fileID: 187455846}
   - component: {fileID: 187455850}
   - component: {fileID: 187455849}
   - component: {fileID: 187455848}
+  - component: {fileID: 187455847}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -201,7 +201,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &187455846
 MonoBehaviour:
@@ -215,8 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b9ffb98962acf4f858d4b1537a9f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &187455847
-CircleCollider2D:
+--- !u!70 &187455847
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -228,9 +228,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.52}
-  serializedVersion: 2
-  m_Radius: 0.46520722
+  m_Offset: {x: 0, y: -0.32964587}
+  m_Size: {x: 0.73533756, y: 1.2930188}
+  m_Direction: 0
 --- !u!114 &187455848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
   coyoteTime: 0.15
   jumpBufferTime: 0.2
   groundCheckerPoint: {fileID: 1127139844}
-  groundCheckerRadius: 0.31
+  groundCheckerRadius: 0.25
   afterJumpCheckDelay: 0.1
   maxFrictionMaterial: {fileID: 6200000, guid: bdbff19039eaaa949be204d2e25e53e1, type: 2}
 --- !u!1001 &254171954
@@ -1010,7 +1010,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127139843}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.718, z: 0}
+  m_LocalPosition: {x: 0, y: -0.796, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 187455843}
