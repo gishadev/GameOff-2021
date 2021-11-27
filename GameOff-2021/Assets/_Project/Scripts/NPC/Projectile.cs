@@ -42,14 +42,20 @@ namespace Gisha.GameOff_2021.NPC
 
         private void ForwardRaycast()
         {
-            RaycastHit2D[] hitInfo = Physics2D.RaycastAll(transform.position,_flyDirection, raycastLength)
+            RaycastHit2D[] hitInfo = Physics2D.RaycastAll(transform.position, _flyDirection, raycastLength)
                 .Where(x => x.collider != _turretCollider && x.collider != _collider)
                 .ToArray();
-            
-            if (hitInfo.Length > 0) 
+
+            if (hitInfo.Length > 0)
+            {
+                foreach (var t in hitInfo)
+                    if (t.collider.TryGetComponent(out IDestroyable destroyable))
+                        destroyable.Destroy();
+
                 Destroy(gameObject);
+            }
         }
-        
+
         public void Destroy()
         {
             Destroy(gameObject);

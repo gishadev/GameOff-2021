@@ -146,9 +146,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPoint: {fileID: 3520725403848394121}
-  shootDelay: 5
+  shootDelay: 4
   projectilePrefab: {fileID: 4064211317148777223, guid: f14df5437a4042d438623593d268ab99, type: 3}
-  projectileFlySpeed: 2
+  projectileFlySpeed: 6
 --- !u!1 &9123999693303887145
 GameObject:
   m_ObjectHideFlags: 0
