@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5094700306211615397}
   - component: {fileID: 6165011603195362446}
   - component: {fileID: 5970422391821723500}
+  - component: {fileID: -7829486910409284701}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8829531821854131971}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 28.400852, y: 22.4081, z: 0}
   m_LocalScale: {x: 1, y: 1.9287, z: 1}
   m_Children: []
@@ -131,3 +132,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-7829486910409284701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8829531821854131971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be740a565e5dea4e82e9b955cdc534e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDirection: {x: 1, y: 0}
+  moveSpeed: 1
+  maxDist: 0
+  minDist: -16.3
