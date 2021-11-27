@@ -1304,11 +1304,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c93c3932a9740518a31c57159761c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationScenes:
-  - Level_1
-  - Level_2
-  - Level_3
-  - Level_4
+  locations:
+  - locationName: Location_1
+    levelsCount: 4
+  - locationName: Location_2
+    levelsCount: 1
 --- !u!4 &1614641058
 Transform:
   m_ObjectHideFlags: 0

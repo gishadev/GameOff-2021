@@ -10,7 +10,7 @@ namespace Gisha.GameOff_2021.Core
 {
     public class GameManager : MonoBehaviour
     {
-        [SerializeField] private string[] locationScenes;
+        [SerializeField] private LocationData[] locations;
         private static GameManager Instance { get; set; }
 
         /// <summary>
@@ -22,16 +22,21 @@ namespace Gisha.GameOff_2021.Core
         private LevelManager CurrentLevel => _levelManagersQueue.Peek();
 
         public static List<Controllable> ControllableList { get; set; }
+
+        private static int _currentLocationIndex = 0;
+
         private CameraFollowController _cameraFollow;
         private PlayerController _player;
 
+        private bool _oncePassed = false;
+        
         private void Awake()
         {
             Instance = this;
             _cameraFollow = Camera.main.GetComponent<CameraFollowController>();
             _player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
 #if !UNITY_EDITOR
-            LoadLocation();
+            LoadLocation(_currentLocationIndex);
 #endif
         }
 
@@ -45,7 +50,7 @@ namespace Gisha.GameOff_2021.Core
         private void LateUpdate()
         {
             // If player is out from the level side > moving to next level. 
-            if (IsPassedLevel(_player.transform.position))
+            if (IsPassedLevel(_player.transform.position) && !_oncePassed)
                 MoveToNextLevel();
         }
 
@@ -70,19 +75,26 @@ namespace Gisha.GameOff_2021.Core
             return false;
         }
 
-        private void LoadLocation()
+        private void LoadLocation(int index)
         {
-            foreach (var s in locationScenes)
+            SceneManager.LoadScene("Game");
+            
+            for (int i = 0; i < locations[index].LevelsCount; i++)
+            {
+                var s = $"Level_{i + 1}";
                 SceneManager.LoadScene(s, LoadSceneMode.Additive);
+            }
         }
 
         public static void RestartLocation()
         {
             SceneManager.LoadScene("Game");
-
-            var scenes = Instance.locationScenes;
-            foreach (var s in scenes)
+            
+            for (int i = 0; i < Instance.locations[_currentLocationIndex].LevelsCount; i++)
+            {
+                var s = $"Level_{i + 1}";
                 SceneManager.LoadScene(s, LoadSceneMode.Additive);
+            }
         }
 
         public static void RespawnOnLevel(PlayerController player)
@@ -96,8 +108,15 @@ namespace Gisha.GameOff_2021.Core
             if (_levelManagersQueue.Count < 2)
             {
                 Debug.Log("<color=green>Last level finished. Moving to the next location.</color>");
+                _currentLocationIndex++;
+                _oncePassed = true;
+
                 // Loading final scene for now.
-                SceneManager.LoadScene(1);
+                if (_currentLocationIndex > locations.Length)
+                    SceneManager.LoadScene(1);
+                else
+                    LoadLocation(_currentLocationIndex);
+                
                 return;
             }
 
@@ -131,5 +150,14 @@ namespace Gisha.GameOff_2021.Core
                 if (b.gameObject.scene == s)
                     _levelManagersQueue.Enqueue(b);
         }
+    }
+
+    [Serializable]
+    public class LocationData
+    {
+        [SerializeField] private string locationName;
+        [SerializeField] private int levelsCount;
+
+        public int LevelsCount => levelsCount;
     }
 }
