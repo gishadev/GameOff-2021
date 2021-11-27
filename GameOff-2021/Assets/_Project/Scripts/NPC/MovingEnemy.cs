@@ -21,10 +21,10 @@ namespace Gisha.GameOff_2021.NPC
             _rb = GetComponent<Rigidbody2D>();
 
             _startPos = transform.position;
-            _maxAbsYDist = _startPos.y + maxDist * moveDirection.y + 0.1f;
+            _maxAbsYDist = _startPos.y + maxDist * moveDirection.y + 0.25f;
             _minAbsYDist = _startPos.y + minDist * moveDirection.y - 0.1f;
             _maxAbsXDist = _startPos.x + maxDist * moveDirection.x + 0.1f;
-            _minAbsXDist = _startPos.x + minDist * moveDirection.x - 0.1f;
+            _minAbsXDist = _startPos.x + minDist * moveDirection.x - 0.25f;
         }
 
         private void FixedUpdate()

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7829486910409284701}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,6 +145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: {x: 1, y: 0}
-  moveSpeed: 150
+  moveSpeed: 300
   maxDist: 0
-  minDist: -16.3
+  minDist: -13.1

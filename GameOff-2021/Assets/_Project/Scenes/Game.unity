@@ -154,7 +154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187455842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 110.6, y: -11.1, z: 0}
+  m_LocalPosition: {x: -3.8999996, y: -3.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1127139844}
@@ -1305,6 +1305,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locationScenes:
+  - Level_1
+  - Level_2
+  - Level_3
   - Level_4
 --- !u!4 &1614641058
 Transform:
