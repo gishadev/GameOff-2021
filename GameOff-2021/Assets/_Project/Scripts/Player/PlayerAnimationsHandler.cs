@@ -30,7 +30,7 @@ namespace Gisha.GameOff_2021.Player
         private void Update()
         {
             _hInput = Input.GetAxisRaw("Horizontal");
-            
+
             HandleAnimations();
             HandleSpriteFlip();
         }
@@ -41,6 +41,8 @@ namespace Gisha.GameOff_2021.Player
                 _animator.SetBool("IsRunning", true);
             else
                 _animator.SetBool("IsRunning", false);
+
+            _animator.SetBool("IsFalling", _movementBehaviour.Velocity.y < -1.5f);
         }
 
         private void HandleSpriteFlip()
