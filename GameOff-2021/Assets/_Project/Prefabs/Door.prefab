@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 406901249754577034, guid: d6a5b74bd3354514daa60f2bc48bf1eb, type: 3}
+  m_Sprite: {fileID: -3870894422557020934, guid: 143e1edee4146e543b2699db19973246, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,14 +102,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 3}
+    oldSize: {x: 1.4869888, y: 2.9739776}
     newSize: {x: 0.16, y: 0.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 3}
+  m_Size: {x: 1.4974289, y: 3}
   m_EdgeRadius: 0
 --- !u!95 &6217595977756175500
 Animator:
@@ -143,4 +143,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualElementPrefab: {fileID: 8480797828463714687, guid: 40ef7b1e98015a54fad6b74aef966d86, type: 3}
+  visualElement: {fileID: 0}
   _isEnterDoor: 1
