@@ -1,28 +1,19 @@
 fileFormatVersion: 2
-guid: 42e4dec8db5eda642a84ae0f2fcaba09
+guid: 672d845977a410842b5595f767b7bc41
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7122515530073820565
-    second: bullet (2)_0
+      213: -6053028784637670663
+    second: lifes_0
   - first:
-      213: 7882811388582207593
-    second: bullet (2)_1
+      213: 8045659825475043564
+    second: lifes_1
   - first:
-      213: 787102071148870346
-    second: bullet (2)_2
+      213: -2172388857465756636
+    second: lifes_2
   - first:
-      213: 1179885762169726348
-    second: bullet (2)_3
-  - first:
-      213: 6910773172806699150
-    second: bullet (2)_4
-  - first:
-      213: 8962520620825527833
-    second: bullet (2)_5
-  - first:
-      213: 3833230416846825341
-    second: bullet (2)_6
+      213: 6844462340035543719
+    second: lifes_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -67,7 +58,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -86,7 +77,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -98,7 +89,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -110,7 +101,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -122,7 +113,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -134,7 +125,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -148,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bullet (2)_0
+      name: lifes_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 10
-        height: 12
+        width: 22
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59dc04d432248d260800000000000000
-      internalID: 7122515530073820565
+      spriteID: 9fa057404625ffba0800000000000000
+      internalID: -6053028784637670663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet (2)_1
+      name: lifes_1
       rect:
         serializedVersion: 2
-        x: 10
+        x: 22
         y: 0
-        width: 10
-        height: 12
+        width: 22
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 960a8d7613f556d60800000000000000
-      internalID: 7882811388582207593
+      spriteID: ce04219cbfce7af60800000000000000
+      internalID: 8045659825475043564
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet (2)_2
+      name: lifes_2
       rect:
         serializedVersion: 2
-        x: 20
+        x: 44
         y: 0
-        width: 10
-        height: 12
+        width: 22
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aca7dc8d9295cea00800000000000000
-      internalID: 787102071148870346
+      spriteID: 424acbc08df1ad1e0800000000000000
+      internalID: -2172388857465756636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet (2)_3
+      name: lifes_3
       rect:
         serializedVersion: 2
-        x: 30
+        x: 66
         y: 0
-        width: 10
-        height: 12
+        width: 22
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,71 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c85eaa179dbcf5010800000000000000
-      internalID: 1179885762169726348
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bullet (2)_4
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 0
-        width: 10
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e884178f59ff7ef50800000000000000
-      internalID: 6910773172806699150
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bullet (2)_5
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 0
-        width: 10
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9164b68e405416c70800000000000000
-      internalID: 8962520620825527833
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bullet (2)_6
-      rect:
-        serializedVersion: 2
-        x: 60
-        y: 0
-        width: 10
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d77a06a31ce523530800000000000000
-      internalID: 3833230416846825341
+      spriteID: 7a28b581c3a6cfe50800000000000000
+      internalID: 6844462340035543719
       vertices: []
       indices: 
       edges: []
