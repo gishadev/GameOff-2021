@@ -45,6 +45,12 @@ namespace Gisha.GameOff_2021.Player
             _animator.SetBool("IsFalling", _movementBehaviour.Velocity.y < -1.5f);
         }
 
+        public void InitDieAnimation()
+        {
+            _animator.SetTrigger("Die");
+        }
+        
+        
         private void HandleSpriteFlip()
         {
             if (_hInput > 0)
