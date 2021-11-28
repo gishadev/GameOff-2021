@@ -45,6 +45,8 @@ namespace Gisha.GameOff_2021.Core
             ControllableList = FindObjectsOfType<Controllable>().ToList();
             InsertAllLevelsToQueue();
             _cameraFollow.SetLevel(CurrentLevel);
+
+            _player.transform.position = CurrentLevel.Spawnpoint.position;
         }
 
         private void LateUpdate()
