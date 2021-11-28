@@ -17,9 +17,11 @@ namespace Gisha.GameOff_2021.NPC
         [SerializeField] private float projectileFlySpeed;
 
         private Collider2D _collider2D;
-
+        private Animator _animator;
+        
         private void Awake()
         {
+            _animator = GetComponent<Animator>();
             _collider2D = GetComponent<Collider2D>();
         }
 
@@ -43,6 +45,8 @@ namespace Gisha.GameOff_2021.NPC
             Debug.Log("Turret shoot.");
             var proj = Instantiate(projectilePrefab, shotPoint.position, shotPoint.rotation).GetComponent<Projectile>();
             proj.OnSpawn(-shotPoint.right, projectileFlySpeed, _collider2D);
+            
+            _animator.SetTrigger("Shoot");
         }
 
         public void Destroy()
