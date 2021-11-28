@@ -11781,6 +11781,14 @@ PrefabInstance:
       propertyPath: m_text
       value: "Fulfillment \nCenter"
       objectReference: {fileID: 0}
+    - target: {fileID: 6196627849370004518, guid: edc028321cdfbe64bb32eb41e82953d7, type: 3}
+      propertyPath: m_fontSize
+      value: 3.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196627849370004518, guid: edc028321cdfbe64bb32eb41e82953d7, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 3.45
+      objectReference: {fileID: 0}
     - target: {fileID: 6196627849370004519, guid: edc028321cdfbe64bb32eb41e82953d7, type: 3}
       propertyPath: m_SizeDelta.y
       value: 3.0312
