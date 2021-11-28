@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using Gisha.GameOff_2021.Core;
 using UnityEngine;
@@ -12,7 +11,6 @@ namespace Gisha.GameOff_2021.NPC
 
         private float _flySpeed;
         private Vector2 _flyDirection;
-
         private Collider2D _turretCollider;
         private Collider2D _collider;
 

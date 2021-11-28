@@ -1,6 +1,6 @@
-using System;
 using Gisha.GameOff_2021.Core;
 using Gisha.GameOff_2021.Player;
+using TMPro;
 using UnityEngine;
 
 namespace Gisha.GameOff_2021.NPC
@@ -17,12 +17,17 @@ namespace Gisha.GameOff_2021.NPC
         private Vector3 _startPos;
         private float _maxAbsYDist, _minAbsYDist;
         private float _maxAbsXDist, _minAbsXDist;
+        private int _playerMask;
 
         private Rigidbody2D _rb;
+        private Animator _animator;
 
         private void Awake()
         {
+            _animator = GetComponent<Animator>();
             _rb = GetComponent<Rigidbody2D>();
+
+            _playerMask = 1 << LayerMask.NameToLayer("Player");
 
             _startPos = transform.position;
             _maxAbsYDist = _startPos.y + maxDist * moveDirection.y + 0.1f;
@@ -42,19 +47,49 @@ namespace Gisha.GameOff_2021.NPC
 
         private void Update()
         {
-            RaycastAttack();
+            if (CheckAreaForTarget())
+                RaycastAttack();
         }
 
         private void RaycastAttack()
         {
             RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, attackRayRadius,
-                moveDirection * _straightDir, attackRayLength);
+                moveDirection * _straightDir, attackRayLength, _playerMask);
 
             if (hitInfo.collider != null)
             {
-                if (hitInfo.collider.CompareTag("Player"))
-                    hitInfo.collider.GetComponent<PlayerController>().Die();
+                hitInfo.collider.GetComponent<PlayerController>().Die();
             }
+        }
+
+        private bool CheckAreaForTarget()
+        {
+            // Max is right, min is left.
+            var maxPoint = (Vector2) _startPos + moveDirection * maxDist;
+            var minPoint = (Vector2) _startPos + moveDirection * minDist;
+
+            RaycastHit2D maxHitInfo = Physics2D.CircleCast(transform.position, attackRayRadius, Vector2.right
+                , maxPoint.x - transform.position.x, _playerMask);
+
+            RaycastHit2D minHitInfo = Physics2D.CircleCast(transform.position, attackRayRadius, Vector2.left
+                , transform.position.x - minPoint.x, _playerMask);
+
+            // Debug.DrawRay(transform.position, Vector2.left * (transform.position.x - minPoint.x),Color.yellow);
+            // Debug.DrawRay(transform.position, Vector2.right * (maxPoint.x - transform.position.x),Color.blue);
+
+            if (maxHitInfo.collider != null)
+            {
+                _straightDir = Vector2.one;
+                return true;
+            }
+
+            if (minHitInfo.collider != null)
+            {
+                _straightDir = -Vector2.one;
+                return true;
+            }
+
+            return false;
         }
 
         public void Destroy()
