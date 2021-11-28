@@ -18,12 +18,15 @@ namespace Gisha.GameOff_2021.NPC
         private float _maxAbsYDist, _minAbsYDist;
         private float _maxAbsXDist, _minAbsXDist;
         private int _playerMask;
+        private RaycastHit2D _attackHitInfo;
 
         private Rigidbody2D _rb;
         private Animator _animator;
+        private SpriteRenderer _spriteRenderer;
 
         private void Awake()
         {
+            _spriteRenderer = GetComponent<SpriteRenderer>();
             _animator = GetComponent<Animator>();
             _rb = GetComponent<Rigidbody2D>();
 
@@ -48,18 +51,34 @@ namespace Gisha.GameOff_2021.NPC
         private void Update()
         {
             if (CheckAreaForTarget())
+            {
+                _animator.SetBool("IsTargetDetected", true);
                 RaycastAttack();
+            }
+            else
+                _animator.SetBool("IsTargetDetected", false);
+
+            HandleSpriteFlipping();
+        }
+
+        private void HandleSpriteFlipping()
+        {
+            _spriteRenderer.flipX = _straightDir.x < 0;
         }
 
         private void RaycastAttack()
         {
-            RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, attackRayRadius,
+            _attackHitInfo = Physics2D.CircleCast(transform.position, attackRayRadius,
                 moveDirection * _straightDir, attackRayLength, _playerMask);
 
-            if (hitInfo.collider != null)
-            {
-                hitInfo.collider.GetComponent<PlayerController>().Die();
-            }
+            if (_attackHitInfo.collider != null)
+                _animator.SetTrigger("Attack");
+        }
+
+        private void Attack()
+        {
+            if (_attackHitInfo.collider != null)
+                _attackHitInfo.collider.GetComponent<PlayerController>().Die();
         }
 
         private bool CheckAreaForTarget()
@@ -94,7 +113,7 @@ namespace Gisha.GameOff_2021.NPC
 
         public void Destroy()
         {
-            Destroy(gameObject);
+            _animator.SetTrigger("Die");
         }
 
         private void OnDrawGizmos()
