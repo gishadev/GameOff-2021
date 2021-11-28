@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Gisha.GameOff_2021.Interactive;
 using Gisha.GameOff_2021.Player;
+using Gisha.GameOff_2021.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -79,7 +80,7 @@ namespace Gisha.GameOff_2021.Core
 
         private void LoadLocation(int index)
         {
-            SceneManager.LoadScene("Game");
+            Timer.Restart();
             
             for (int i = 0; i < locations[index].LevelsCount; i++)
             {
