@@ -1,4 +1,5 @@
 using Gisha.GameOff_2021.Interactive;
+using Gisha.GameOff_2021.Utilities;
 using UnityEngine;
 
 namespace Gisha.GameOff_2021.Player
@@ -28,6 +29,7 @@ namespace Gisha.GameOff_2021.Player
             _coll.sharedMaterial = zeroFrictionMaterial;
             
             ControllablesVisualizer.RemoveAllControllableUIElements();
+            PostProcessingController.SetDefaultPreset();
         }
 
         // public void HandleInput()

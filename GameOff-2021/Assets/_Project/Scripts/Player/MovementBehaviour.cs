@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using Gisha.GameOff_2021.Core;
 using Gisha.GameOff_2021.Interactive;
+using Gisha.GameOff_2021.Utilities;
 
 namespace Gisha.GameOff_2021.Player
 {
@@ -64,6 +65,7 @@ namespace Gisha.GameOff_2021.Player
                 PlayerFell += OnFellOnGround;
             
             ControllablesVisualizer.SpawnControllableVisuals(GameManager.ControllableList);
+            PostProcessingController.SetControlPreset();
         }
 
         private void OnFellOnGround()
