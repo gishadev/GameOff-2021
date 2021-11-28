@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Gisha.GameOff_2021.Interactive
 {
-    public class Door : Controllable, IUITriggerControl
+    public class Door : Controllable, IUITriggerControl, IEnterBound
     {
         /// <summary>
         /// If the door is entry it closes permanently, when the players enters a new level. 
@@ -31,7 +31,7 @@ namespace Gisha.GameOff_2021.Interactive
             GameManager.LevelChanged -= OnLevelChanged;
         }
 
-        private void OnLevelChanged(LevelManager levelManager)
+        public void OnLevelChanged(LevelManager levelManager)
         {
             // Auto-closing of the door, when the player enters a new level.
             if (_isEnterDoor && gameObject.scene == levelManager.LevelScene)
