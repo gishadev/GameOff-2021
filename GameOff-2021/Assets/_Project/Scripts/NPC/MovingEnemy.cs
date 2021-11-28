@@ -116,6 +116,12 @@ namespace Gisha.GameOff_2021.NPC
             _animator.SetTrigger("Die");
         }
 
+        public void DestroyOnFinishAnimation()
+        {
+            Destroy(gameObject);
+        }
+        
+        
         private void OnDrawGizmos()
         {
             if (!Application.isPlaying)
