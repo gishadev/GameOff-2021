@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 6413409498184245838}
   - component: {fileID: 5094700306211615397}
   - component: {fileID: 5970422391821723500}
-  - component: {fileID: -7829486910409284701}
   - component: {fileID: 8911456178294904525}
+  - component: {fileID: -7829486910409284701}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,22 +106,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-7829486910409284701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8829531821854131971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1be740a565e5dea4e82e9b955cdc534e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveDirection: {x: 1, y: 0}
-  moveSpeed: 300
-  maxDist: 0
-  minDist: -5.71
 --- !u!70 &8911456178294904525
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -138,3 +122,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.39376593}
   m_Size: {x: 0.71717453, y: 1.689805}
   m_Direction: 0
+--- !u!114 &-7829486910409284701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8829531821854131971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be740a565e5dea4e82e9b955cdc534e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDirection: {x: 1, y: 0}
+  moveSpeed: 300
+  maxDist: 0
+  minDist: -12.5
