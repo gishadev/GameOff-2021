@@ -20689,6 +20689,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6217595977756175497, guid: f7f7d14bcbc2e3649ab14a8e3b8b56dc, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6217595977756175501, guid: f7f7d14bcbc2e3649ab14a8e3b8b56dc, type: 3}
       propertyPath: _isEnterDoor
       value: 0
