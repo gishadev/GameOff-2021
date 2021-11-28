@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8911456178294904525}
   - component: {fileID: 1584643670}
   - component: {fileID: -7829486910409284701}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,4 +157,6 @@ MonoBehaviour:
   moveDirection: {x: 1, y: 0}
   moveSpeed: 300
   maxDist: 0
-  minDist: -12.5
+  minDist: -5.57
+  attackRayLength: 1.25
+  attackRayRadius: 0.25
