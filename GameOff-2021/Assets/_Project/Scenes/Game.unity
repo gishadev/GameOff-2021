@@ -1355,8 +1355,6 @@ MonoBehaviour:
   locations:
   - locationName: Location_1
     levelsCount: 4
-  - locationName: Location_2
-    levelsCount: 1
 --- !u!4 &1614641058
 Transform:
   m_ObjectHideFlags: 0
