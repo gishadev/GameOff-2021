@@ -9,8 +9,9 @@ namespace Gisha.GameOff_2021.Player
         private PlayerBehaviour[] _behaviours;
 
         private PlayerAnimationsHandler _animationsHandler;
-        
+
         private int _lives = 4;
+        private bool _onceDie = false;
 
         private void Awake()
         {
@@ -45,7 +46,11 @@ namespace Gisha.GameOff_2021.Player
 
         public void Die()
         {
-            _animationsHandler.InitDieAnimation();
+            if (!_onceDie)
+            {
+                _animationsHandler.InitDieAnimation();
+                _onceDie = true;
+            }
         }
 
         private void DieAfterAnimation()
@@ -58,8 +63,10 @@ namespace Gisha.GameOff_2021.Player
             }
             else
                 GameManager.RestartLocation();
+
+            _onceDie = false;
         }
-        
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Obstacle"))
