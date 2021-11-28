@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 891884494736543325}
   - component: {fileID: 891884494736543323}
   - component: {fileID: 891884494736543320}
+  - component: {fileID: 1989435070541734400}
   m_Layer: 6
   m_Name: Elevator
   m_TagString: Untagged
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2654293824252597092, guid: 40f111d1d3d49e7429b99d266b416211, type: 3}
+  m_Sprite: {fileID: 8168279318070091727, guid: fcf8f10e5cff04640969a8a5d656f46a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,18 +98,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.14105749}
+  m_Offset: {x: 0, y: 0.15458322}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.3125, y: 1.875}
+    oldSize: {x: 2.0625, y: 1.0625}
     newSize: {x: 0.37, y: 0.3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.3125, y: 0.2838688}
+  m_Size: {x: 2.062008, y: 0.25681734}
   m_EdgeRadius: 0
 --- !u!114 &891884494736543320
 MonoBehaviour:
@@ -128,3 +129,22 @@ MonoBehaviour:
   moveSpeed: 2
   maxDist: 5
   minDist: -5
+--- !u!95 &1989435070541734400
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891884494736543324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 26d6424e298ee2e449bada54caf85020, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -14,8 +14,12 @@ namespace Gisha.GameOff_2021.Interactive
         private float _maxAbsYDist, _minAbsYDist;
         private float _maxAbsXDist, _minAbsXDist;
 
+        private Animator _animator;
+        
         private void Awake()
         {
+            _animator = GetComponent<Animator>();
+            
             _startPos = transform.position;
             _maxAbsYDist = _startPos.y + maxDist * moveDirection.y + 0.02f;
             _minAbsYDist = _startPos.y + minDist * moveDirection.y - 0.02f;
@@ -71,7 +75,10 @@ namespace Gisha.GameOff_2021.Interactive
         {
             var sDir = (Vector2) transform.position + moveDirection * 0.1f * _straightDir;
             if (sDir.y < _maxAbsYDist && sDir.y > _minAbsYDist && sDir.x < _maxAbsXDist && sDir.x > _minAbsXDist)
+            {
                 transform.Translate(moveDirection * moveSpeed * _straightDir * Time.deltaTime);
+                _animator.SetBool("IsMoving", true);
+            }
             else
                 Stop();
         }
@@ -80,6 +87,8 @@ namespace Gisha.GameOff_2021.Interactive
         {
             _isWorking = false;
             _straightDir = Vector2.zero;
+            
+            _animator.SetBool("IsMoving", false);
         }
 
         private void OnCollisionEnter2D(Collision2D other)
