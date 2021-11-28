@@ -102,6 +102,7 @@ namespace Gisha.GameOff_2021.Core
         public static void RespawnOnLevel(PlayerController player)
         {
             player.transform.position = Instance.CurrentLevel.Spawnpoint.position;
+            Instance.CurrentLevel.Spawnpoint.GetComponent<Animator>().SetTrigger("Spawn");
         }
 
         private void MoveToNextLevel()
