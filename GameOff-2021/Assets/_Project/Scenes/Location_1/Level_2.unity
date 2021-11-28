@@ -12999,30 +12999,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6687953970295911815, guid: 192506034c91c2249a8d191005f542e4, type: 3}
   m_PrefabInstance: {fileID: 732523123}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &736861691 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7917078010354561882, guid: bd1721dfe4358a84b8797fe88e955f25, type: 3}
-  m_PrefabInstance: {fileID: 832923831}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &736861694
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 736861691}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 32f00bcb7814a0049b783933482a7fa6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &811590104
 GameObject:
   m_ObjectHideFlags: 0
@@ -13194,18 +13170,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1682605693, guid: bd1721dfe4358a84b8797fe88e955f25, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -13.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1682605693, guid: bd1721dfe4358a84b8797fe88e955f25, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5734067531086233003, guid: bd1721dfe4358a84b8797fe88e955f25, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -13.84
-      objectReference: {fileID: 0}
     - target: {fileID: 6296388838827426928, guid: bd1721dfe4358a84b8797fe88e955f25, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -13253,26 +13217,6 @@ PrefabInstance:
     - target: {fileID: 6296388838827426929, guid: bd1721dfe4358a84b8797fe88e955f25, type: 3}
       propertyPath: m_Name
       value: Level Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6296388838827426931, guid: bd1721dfe4358a84b8797fe88e955f25, type: 3}
-      propertyPath: isVerticalExit
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6296388839083732076, guid: bd1721dfe4358a84b8797fe88e955f25, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 6296388839083732076, guid: bd1721dfe4358a84b8797fe88e955f25, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 6296388839158571067, guid: bd1721dfe4358a84b8797fe88e955f25, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -16.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6296388839158571067, guid: bd1721dfe4358a84b8797fe88e955f25, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -14.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd1721dfe4358a84b8797fe88e955f25, type: 3}
