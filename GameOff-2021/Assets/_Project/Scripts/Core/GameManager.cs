@@ -84,7 +84,7 @@ namespace Gisha.GameOff_2021.Core
             
             for (int i = 0; i < locations[index].LevelsCount; i++)
             {
-                var s = $"Level_{i + 1}";
+                var s = $"_Project/Scenes/Location_1/Level_{i + 1}";
                 SceneManager.LoadScene(s, LoadSceneMode.Additive);
             }
         }
