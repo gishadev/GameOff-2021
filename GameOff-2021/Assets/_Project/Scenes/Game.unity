@@ -892,7 +892,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf4889b9d97c794d84d0d3cfaf98388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicCollection: []
+  musicCollection:
+  - name: Space
+    audioClip: {fileID: 8300000, guid: 303fa29da7edff64bad746a7b50524e4, type: 3}
+    isLooping: 1
+    isFade: 0
+    volume: 0.15
+    pitch: 1
   sfxCollection: []
   fadeTransitionSpeed: 0
 --- !u!114 &555396555
@@ -910,8 +916,8 @@ MonoBehaviour:
   effectsCollection:
   - name: L_Explosion
     prefab: {fileID: 1697139844206859680, guid: a76c69ca29e0265428aab57e2fa0f064, type: 3}
-  - name: L_Explosion
-    prefab: {fileID: 1697139844206859680, guid: a76c69ca29e0265428aab57e2fa0f064, type: 3}
+  - name: S_Explosion
+    prefab: {fileID: 7795333122780285336, guid: 75d372588bb0746448497ed3f4b7629f, type: 3}
 --- !u!4 &555396556
 Transform:
   m_ObjectHideFlags: 0

@@ -43,6 +43,11 @@ namespace Gisha.Effects.Audio
             SetUpAudioArray(sfxCollection);
         }
 
+        private void Start()
+        {
+            PlayMusic("Space");
+        }
+
         private void CreateInstance()
         {
             DontDestroyOnLoad(gameObject);
