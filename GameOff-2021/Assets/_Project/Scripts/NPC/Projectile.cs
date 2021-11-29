@@ -1,4 +1,5 @@
 using System.Linq;
+using Gisha.Effects.Audio;
 using Gisha.GameOff_2021.Core;
 using UnityEngine;
 using VFXManager = Gisha.Effects.VFX.VFXManager;
@@ -57,8 +58,10 @@ namespace Gisha.GameOff_2021.NPC
 
         public void Destroy()
         {
-            VFXManager.Instance.Emit("S_Explosion", transform.position);
             Destroy(gameObject);
+            
+            VFXManager.Instance.Emit("S_Explosion", transform.position);
+            AudioManager.Instance.PlaySFX("Hit");
         }
 
         private void OnDrawGizmos()

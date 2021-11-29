@@ -1,3 +1,4 @@
+using Gisha.Effects.Audio;
 using Gisha.GameOff_2021.Core;
 using Gisha.GameOff_2021.Player;
 using TMPro;
@@ -61,6 +62,11 @@ namespace Gisha.GameOff_2021.NPC
             HandleSpriteFlipping();
         }
 
+        private void Animation_Detect()
+        {
+            AudioManager.Instance.PlaySFX("EnemyMode");
+        }
+
         private void HandleSpriteFlipping()
         {
             _spriteRenderer.flipX = _straightDir.x < 0;
@@ -75,10 +81,12 @@ namespace Gisha.GameOff_2021.NPC
                 _animator.SetTrigger("Attack");
         }
 
-        private void Attack()
+        private void Animation_Attack()
         {
             if (_attackHitInfo.collider != null)
                 _attackHitInfo.collider.GetComponent<PlayerController>().Die();
+            
+            AudioManager.Instance.PlaySFX("Attack");
         }
 
         private bool CheckAreaForTarget()
@@ -114,14 +122,16 @@ namespace Gisha.GameOff_2021.NPC
         public void Destroy()
         {
             _animator.SetTrigger("Die");
+
+            AudioManager.Instance.PlaySFX("Death4");
         }
 
         public void DestroyOnFinishAnimation()
         {
             Destroy(gameObject);
         }
-        
-        
+
+
         private void OnDrawGizmos()
         {
             if (!Application.isPlaying)

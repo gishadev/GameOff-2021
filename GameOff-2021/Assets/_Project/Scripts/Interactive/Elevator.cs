@@ -1,3 +1,4 @@
+using Gisha.Effects.Audio;
 using UnityEngine;
 
 namespace Gisha.GameOff_2021.Interactive
@@ -56,17 +57,21 @@ namespace Gisha.GameOff_2021.Interactive
         {
             _isWorking = true;
             _straightDir = -Vector2.one;
+            
+            AudioManager.Instance.PlaySFX("ControlUse2");
         }
 
         public void OnClick_RightBtn()
         {
             _isWorking = true;
             _straightDir = Vector2.one;
+            AudioManager.Instance.PlaySFX("ControlUse2");
         }
 
         public void OnClick_StopBtn()
         {
             Stop();
+            AudioManager.Instance.PlaySFX("ControlUse3");
         }
 
         #endregion

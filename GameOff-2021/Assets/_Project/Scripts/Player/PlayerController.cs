@@ -1,3 +1,4 @@
+using Gisha.Effects.Audio;
 using Gisha.GameOff_2021.Core;
 using Gisha.GameOff_2021.GUI;
 using UnityEngine;
@@ -42,12 +43,15 @@ namespace Gisha.GameOff_2021.Player
             _behaviours[1] = temp;
 
             Debug.Log("Behaviour was switched!");
+            
+            AudioManager.Instance.PlaySFX("powerUp");
         }
 
         public void Die()
         {
             if (!_onceDie)
             {
+                AudioManager.Instance.PlaySFX("Death3");
                 _animationsHandler.InitDieAnimation();
                 _onceDie = true;
             }

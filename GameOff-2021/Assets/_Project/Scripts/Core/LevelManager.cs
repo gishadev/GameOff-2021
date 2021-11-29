@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,8 +18,7 @@ namespace Gisha.GameOff_2021.Core
         public bool IsVerticalExit => isVerticalExit;
         public bool IsReversedExit => isReversedExit;
         public Scene LevelScene => gameObject.scene;
-
-
+        
         [ContextMenu("Try Get Bounds")]
         private void TryGetBounds()
         {

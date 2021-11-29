@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using Gisha.Effects.Audio;
 using Gisha.GameOff_2021.Core;
 using Gisha.GameOff_2021.Interactive;
 using Gisha.GameOff_2021.Utilities;
@@ -87,6 +88,7 @@ namespace Gisha.GameOff_2021.Player
             impactEffect.Stop();
             impactEffect.Play();
             _coll.sharedMaterial = maxFrictionMaterial;
+            
             PlayerFell -= OnFellOnGroundInControl;
         }
 
@@ -94,6 +96,7 @@ namespace Gisha.GameOff_2021.Player
         {
             impactEffect.gameObject.SetActive(true);
             impactEffect.Play();
+            
             PlayerFell -= OnFellOnGround;
         }
 
@@ -135,6 +138,8 @@ namespace Gisha.GameOff_2021.Player
 
             PlayerFell += OnFellOnGround;
             PlayerJumped.Invoke();
+            
+            AudioManager.Instance.PlaySFX("secondJump");
         }
 
         private IEnumerator GroundCheckCoroutine()

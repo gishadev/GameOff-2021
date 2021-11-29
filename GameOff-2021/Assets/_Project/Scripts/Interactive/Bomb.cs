@@ -1,3 +1,4 @@
+using Gisha.Effects.Audio;
 using Gisha.Effects.VFX;
 using Gisha.GameOff_2021.Core;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace Gisha.GameOff_2021.Interactive
         {
             Explode();
             Destroy(gameObject);
+            AudioManager.Instance.PlaySFX("ControlUse2");
         }
 
         private void Explode()
@@ -31,6 +33,7 @@ namespace Gisha.GameOff_2021.Interactive
             }
             
             VFXManager.Instance.Emit("L_Explosion", transform.position);
+            AudioManager.Instance.PlaySFX("deathEnemy1");
         }
 
 

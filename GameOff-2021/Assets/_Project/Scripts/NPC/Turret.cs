@@ -1,4 +1,5 @@
 using System.Collections;
+using Gisha.Effects.Audio;
 using Gisha.GameOff_2021.Core;
 using UnityEngine;
 
@@ -52,6 +53,8 @@ namespace Gisha.GameOff_2021.NPC
         public void Destroy()
         {
             Destroy(gameObject);
+            
+            AudioManager.Instance.PlaySFX("Death4");
         }
     }
 }

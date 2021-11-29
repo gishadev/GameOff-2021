@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Gisha.Effects.Audio;
 using Gisha.GameOff_2021.Interactive;
 using Gisha.GameOff_2021.Player;
 using Gisha.GameOff_2021.Utilities;
@@ -104,6 +105,8 @@ namespace Gisha.GameOff_2021.Core
         {
             player.transform.position = Instance.CurrentLevel.Spawnpoint.position;
             Instance.CurrentLevel.Spawnpoint.GetComponent<Animator>().SetTrigger("Spawn");
+            
+            AudioManager.Instance.PlaySFX("respawn3");
         }
 
         private void MoveToNextLevel()

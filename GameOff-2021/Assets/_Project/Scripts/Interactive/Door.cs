@@ -1,3 +1,4 @@
+using Gisha.Effects.Audio;
 using Gisha.GameOff_2021.Core;
 using UnityEngine;
 
@@ -53,6 +54,8 @@ namespace Gisha.GameOff_2021.Interactive
             _isOpened = !_isOpened;
             _animator.SetBool("IsOpened", _isOpened);
             _collider.enabled = !_isOpened;
+            
+            AudioManager.Instance.PlaySFX("ControlUse2");
         }
     }
 }
