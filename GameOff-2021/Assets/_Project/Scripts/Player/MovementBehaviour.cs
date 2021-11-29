@@ -19,8 +19,11 @@ namespace Gisha.GameOff_2021.Player
 
         [SerializeField] private float groundCheckerRadius = 0.31f;
         [SerializeField] private float afterJumpCheckDelay = 0.1f;
+        [SerializeField] private PhysicsMaterial2D maxFrictionMaterial;
 
-        [Space] [SerializeField] private PhysicsMaterial2D maxFrictionMaterial;
+        [Space] [SerializeField] private ParticleSystem footStepsEffect;
+        [SerializeField] private float rateOverTime;
+
 
         public Vector2 Velocity => _rb.velocity;
         public Action PlayerJumped { set; get; }
@@ -32,6 +35,7 @@ namespace Gisha.GameOff_2021.Player
         private bool _isGrounded = true;
         private float _hInput;
 
+        private ParticleSystem.EmissionModule _emissionModule;
         private Rigidbody2D _rb;
         private Collider2D _coll;
 
@@ -39,6 +43,7 @@ namespace Gisha.GameOff_2021.Player
         {
             _coll = GetComponent<Collider2D>();
             _rb = GetComponent<Rigidbody2D>();
+            _emissionModule = footStepsEffect.emission;
             _groundLayer = 1 << LayerMask.NameToLayer("Ground");
         }
 
@@ -50,6 +55,8 @@ namespace Gisha.GameOff_2021.Player
         public override void Update()
         {
             HandleInput();
+
+            _emissionModule.rateOverTimeMultiplier = Mathf.Abs(_hInput) > 0 ? rateOverTime : 0f;
         }
 
         public override void FixedUpdate()
@@ -63,7 +70,7 @@ namespace Gisha.GameOff_2021.Player
                 _coll.sharedMaterial = maxFrictionMaterial;
             else
                 PlayerFell += OnFellOnGround;
-            
+
             ControllablesVisualizer.SpawnControllableVisuals(GameManager.ControllableList);
             PostProcessingController.SetControlPreset();
         }
