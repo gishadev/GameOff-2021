@@ -1,3 +1,4 @@
+using Gisha.Effects.VFX;
 using Gisha.GameOff_2021.Core;
 using UnityEngine;
 
@@ -21,15 +22,15 @@ namespace Gisha.GameOff_2021.Interactive
 
         private void Explode()
         {
-            Debug.Log("Boom!");
-            
             var colliders = Physics2D.OverlapCircleAll(transform.position, damageRadius);
 
             foreach (var coll in colliders)
             {
-                if (coll.TryGetComponent(out IDestroyable destroyable)) 
+                if (coll.TryGetComponent(out IDestroyable destroyable))
                     destroyable.Destroy();
             }
+            
+            VFXManager.Instance.Emit("L_Explosion", transform.position);
         }
 
 
