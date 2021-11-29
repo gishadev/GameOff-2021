@@ -11,7 +11,7 @@ namespace Gisha.GameOff_2021.Player
 
         private PlayerAnimationsHandler _animationsHandler;
 
-        private int _lives = 4;
+        private int _lives = 5;
         private bool _onceDie = false;
 
         private void Awake()
