@@ -22,8 +22,8 @@ namespace Gisha.GameOff_2021.Player
         [SerializeField] private PhysicsMaterial2D maxFrictionMaterial;
 
         [Space] [SerializeField] private ParticleSystem footStepsEffect;
+        [SerializeField] private ParticleSystem impactEffect;
         [SerializeField] private float rateOverTime;
-
 
         public Vector2 Velocity => _rb.velocity;
         public Action PlayerJumped { set; get; }
@@ -52,6 +52,12 @@ namespace Gisha.GameOff_2021.Player
             StartCoroutine(GroundCheckCoroutine());
         }
 
+        // Unsubscribing on return to this mode.
+        private void OnEnable()
+        {
+            PlayerFell -= OnFellOnGroundInControl;
+        }
+
         public override void Update()
         {
             HandleInput();
@@ -69,15 +75,25 @@ namespace Gisha.GameOff_2021.Player
             if (_isGrounded)
                 _coll.sharedMaterial = maxFrictionMaterial;
             else
-                PlayerFell += OnFellOnGround;
+                PlayerFell += OnFellOnGroundInControl;
 
             ControllablesVisualizer.SpawnControllableVisuals(GameManager.ControllableList);
             PostProcessingController.SetControlPreset();
         }
 
+        private void OnFellOnGroundInControl()
+        {
+            impactEffect.gameObject.SetActive(true);
+            impactEffect.Stop();
+            impactEffect.Play();
+            _coll.sharedMaterial = maxFrictionMaterial;
+            PlayerFell -= OnFellOnGroundInControl;
+        }
+
         private void OnFellOnGround()
         {
-            _coll.sharedMaterial = maxFrictionMaterial;
+            impactEffect.gameObject.SetActive(true);
+            impactEffect.Play();
             PlayerFell -= OnFellOnGround;
         }
 
@@ -117,6 +133,7 @@ namespace Gisha.GameOff_2021.Player
             StopAllCoroutines();
             StartCoroutine(GroundCheckCoroutineWithDelay(afterJumpCheckDelay));
 
+            PlayerFell += OnFellOnGround;
             PlayerJumped.Invoke();
         }
 
