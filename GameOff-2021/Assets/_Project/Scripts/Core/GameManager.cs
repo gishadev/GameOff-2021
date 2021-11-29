@@ -31,12 +31,13 @@ namespace Gisha.GameOff_2021.Core
         private PlayerController _player;
 
         private bool _oncePassed = false;
-        
+
         private void Awake()
         {
             Instance = this;
             _cameraFollow = Camera.main.GetComponent<CameraFollowController>();
             _player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+            
 #if !UNITY_EDITOR
             LoadLocation(_currentLocationIndex);
 #endif
@@ -56,6 +57,9 @@ namespace Gisha.GameOff_2021.Core
             // If player is out from the level side > moving to next level. 
             if (IsPassedLevel(_player.transform.position) && !_oncePassed)
                 MoveToNextLevel();
+            
+            if (Input.GetKeyDown(KeyCode.E))
+                RestartLocation();
         }
 
         private bool IsPassedLevel(Vector3 playerPos)
@@ -82,7 +86,7 @@ namespace Gisha.GameOff_2021.Core
         private void LoadLocation(int index)
         {
             Timer.Restart();
-            
+
             for (int i = 0; i < locations[index].LevelsCount; i++)
             {
                 var s = $"_Project/Scenes/Location_1/Level_{i + 1}";
@@ -92,20 +96,14 @@ namespace Gisha.GameOff_2021.Core
 
         public static void RestartLocation()
         {
-            SceneManager.LoadScene("Game");
-            
-            for (int i = 0; i < Instance.locations[_currentLocationIndex].LevelsCount; i++)
-            {
-                var s = $"Level_{i + 1}";
-                SceneManager.LoadScene(s, LoadSceneMode.Additive);
-            }
+            SceneManager.LoadScene("Game", LoadSceneMode.Single);
         }
 
         public static void RespawnOnLevel(PlayerController player)
         {
             player.transform.position = Instance.CurrentLevel.Spawnpoint.position;
             Instance.CurrentLevel.Spawnpoint.GetComponent<Animator>().SetTrigger("Spawn");
-            
+
             AudioManager.Instance.PlaySFX("respawn3");
         }
 
@@ -123,7 +121,7 @@ namespace Gisha.GameOff_2021.Core
                     SceneManager.LoadScene(1);
                 else
                     LoadLocation(_currentLocationIndex);
-                
+
                 return;
             }
 
