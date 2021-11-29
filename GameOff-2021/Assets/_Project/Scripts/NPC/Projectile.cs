@@ -1,6 +1,7 @@
 using System.Linq;
 using Gisha.GameOff_2021.Core;
 using UnityEngine;
+using VFXManager = Gisha.Effects.VFX.VFXManager;
 
 namespace Gisha.GameOff_2021.NPC
 {
@@ -50,12 +51,13 @@ namespace Gisha.GameOff_2021.NPC
                     if (t.collider.TryGetComponent(out IDestroyable destroyable))
                         destroyable.Destroy();
 
-                Destroy(gameObject);
+                Destroy();
             }
         }
 
         public void Destroy()
         {
+            VFXManager.Instance.Emit("S_Explosion", transform.position);
             Destroy(gameObject);
         }
 
