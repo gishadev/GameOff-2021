@@ -115,7 +115,10 @@ namespace Gisha.GameOff_2021.Core
 
                 // Loading final scene for now.
                 if (_currentLocationIndex + 1 > locations.Length)
+                {
                     SceneManager.LoadScene("End");
+                    Timer.StopTimer();
+                }
                 else
                     LoadLocation(_currentLocationIndex);
 
