@@ -1,24 +1,38 @@
 using Gisha.Effects.Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Gisha.GameOff_2021.MainMenu
 {
     public class MenuManager : MonoBehaviour
     {
-        [SerializeField] private GameObject settingsMenu;
         [SerializeField] private GameObject creditsMenu;
-
+        [SerializeField] private Image sfxImage;
+        [SerializeField] private Image musicImage;
+        
+        [SerializeField] private Sprite sfxOn, sfxOff;
+        
+        
         public void OnClick_Play()
         {
             SceneManager.LoadScene("Game");
-            
+
             MakeClickSound();
         }
 
-        public void OnClick_Settings()
+        public void OnClick_SFX()
         {
-            settingsMenu.SetActive(true);
+            AudioManager.Instance.SetSFXVolume(AudioManager.Instance.IsSfxMuted ? 1f : 0f);
+            sfxImage.sprite = AudioManager.Instance.IsSfxMuted ? sfxOff : sfxOn;
+            
+            MakeClickSound();
+        }
+        
+        public void OnClick_Music()
+        {
+            AudioManager.Instance.SetMusicVolume(AudioManager.Instance.IsMusicMuted ? 0.3f : 0f);
+            musicImage.sprite = AudioManager.Instance.IsMusicMuted ? sfxOff : sfxOn;
             
             MakeClickSound();
         }
@@ -26,22 +40,21 @@ namespace Gisha.GameOff_2021.MainMenu
         public void OnClick_Credits()
         {
             creditsMenu.SetActive(true);
-            
+
             MakeClickSound();
         }
 
         public void OnClick_CloseSubmenu()
         {
             creditsMenu.SetActive(false);
-            settingsMenu.SetActive(false);
-            
+
             MakeClickSound();
         }
 
         public void OnClick_Quit()
         {
             Application.Quit();
-            
+
             MakeClickSound();
         }
 
