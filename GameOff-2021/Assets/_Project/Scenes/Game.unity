@@ -164,7 +164,7 @@ Transform:
   - {fileID: 1050879392}
   - {fileID: 965085901}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &187455844
 Animator:
@@ -484,7 +484,7 @@ RectTransform:
   m_Children:
   - {fileID: 1295985320}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -602,7 +602,7 @@ Transform:
   m_LocalScale: {x: 250, y: 250, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &501074689
 PrefabInstance:
@@ -862,256 +862,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!1 &555396553
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 555396556}
-  - component: {fileID: 555396555}
-  - component: {fileID: 555396554}
-  m_Layer: 0
-  m_Name: Effects Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &555396554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555396553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecf4889b9d97c794d84d0d3cfaf98388, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicCollection:
-  - name: Space
-    audioClip: {fileID: 8300000, guid: 303fa29da7edff64bad746a7b50524e4, type: 3}
-    isLooping: 1
-    isFade: 0
-    volume: 0.15
-    pitch: 1
-  sfxCollection:
-  - name: ControlCancel
-    audioClip: {fileID: 8300000, guid: ef7fefe73285c9940b9710b086f05e84, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: ControlUse2
-    audioClip: {fileID: 8300000, guid: d8bc45f60e267d74e94ae340e17b7fc9, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: ControlUse3
-    audioClip: {fileID: 8300000, guid: 64df686cef7e68b4da44f69f646da375, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: Death1
-    audioClip: {fileID: 8300000, guid: bdaa517efc7f46e4e969cf9bcb5ac78a, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: Death2
-    audioClip: {fileID: 8300000, guid: f56e131d14f0c1d47bd8068a65159cc4, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: Death3
-    audioClip: {fileID: 8300000, guid: 0f67c37f0bc87f54aa98ac5012f06de1, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: Death4
-    audioClip: {fileID: 8300000, guid: 69d8e69959469344c871f34bf3111129, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: deathEnemy1
-    audioClip: {fileID: 8300000, guid: eb91660dbaeebb74a9afef0d5913a4f1, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: deathEnemy2
-    audioClip: {fileID: 8300000, guid: 647fef73866698f499cca4b1d2a9ec64, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: deathEnemy3
-    audioClip: {fileID: 8300000, guid: cececd3507574444b8fbcd16165cbd0c, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: enemyGettingHit
-    audioClip: {fileID: 8300000, guid: 5c4959d5f68fd234fbb4d7bb8220c4c1, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: enemyGettingHit2
-    audioClip: {fileID: 8300000, guid: 060b3928bf10c9546a736d0037a44e07, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: enemygettinghit3
-    audioClip: {fileID: 8300000, guid: 4c72fd5980f75f942929cde930b989ce, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: firstJump
-    audioClip: {fileID: 8300000, guid: 40ef153dc504563459b36a13b40f0ce7, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: gettingHit
-    audioClip: {fileID: 8300000, guid: c640234a28ea0e741b57160504a2b826, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: gettingHit2
-    audioClip: {fileID: 8300000, guid: 714314ff9d976b54e8fbf5e3a5b34c41, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: gettingHit3
-    audioClip: {fileID: 8300000, guid: 2cfd5c7b43966634583e5ba2ac998a02, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: menuClick
-    audioClip: {fileID: 8300000, guid: b73179fe5d9f04741ad6245b927e77eb, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: menuClick2
-    audioClip: {fileID: 8300000, guid: ff574b97b91ccca459dad24cbf414414, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: MenuClick3
-    audioClip: {fileID: 8300000, guid: 18c84d5991509464498cc272bad5438d, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: respawn
-    audioClip: {fileID: 8300000, guid: de305384c6cad5e41ad022be449bf67b, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: respawn2
-    audioClip: {fileID: 8300000, guid: ebf8d8d66a393d34e907d3f66fbca0d8, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: respawn3
-    audioClip: {fileID: 8300000, guid: 61ec77d90ff97af4d95fec79d26ae61e, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: secondJump
-    audioClip: {fileID: 8300000, guid: cc66b0513694629419688b4fafc6cb06, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: selectAction1
-    audioClip: {fileID: 8300000, guid: ff7debd6d4083284f992192ffaedff2e, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: turnInSelectMode
-    audioClip: {fileID: 8300000, guid: 9e5119a5e82acc341b23463b1a23cd6f, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: powerUp
-    audioClip: {fileID: 8300000, guid: f047903814acb774b85c9a777af6f398, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: Hit
-    audioClip: {fileID: 8300000, guid: 95e839a98c98d4c47bac1a7031c86a9b, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: EnemyMode
-    audioClip: {fileID: 8300000, guid: 802c4ffc97ad10b4281582cd6e2874ae, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  - name: Attack
-    audioClip: {fileID: 8300000, guid: f4d94b02706d77b43a6c187ba29bb3dd, type: 3}
-    isLooping: 0
-    isFade: 0
-    volume: 1
-    pitch: 1
-  fadeTransitionSpeed: 0
---- !u!114 &555396555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555396553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa2ff00276b0776469f155ed2733ba8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effectsCollection:
-  - name: L_Explosion
-    prefab: {fileID: 1697139844206859680, guid: a76c69ca29e0265428aab57e2fa0f064, type: 3}
-  - name: S_Explosion
-    prefab: {fileID: 7795333122780285336, guid: 75d372588bb0746448497ed3f4b7629f, type: 3}
---- !u!4 &555396556
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555396553}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &789145962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,7 +955,7 @@ RectTransform:
   m_Children:
   - {fileID: 1827253535}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11391,7 +11141,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1376799484
 MonoBehaviour:
@@ -11449,7 +11199,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1667161832
 GameObject:

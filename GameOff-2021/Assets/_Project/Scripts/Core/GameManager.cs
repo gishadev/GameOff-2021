@@ -38,9 +38,9 @@ namespace Gisha.GameOff_2021.Core
             _cameraFollow = Camera.main.GetComponent<CameraFollowController>();
             _player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
             
-#if !UNITY_EDITOR
+//#if !UNITY_EDITOR
             LoadLocation(_currentLocationIndex);
-#endif
+//#endif
         }
 
         private void Start()
@@ -115,7 +115,7 @@ namespace Gisha.GameOff_2021.Core
 
                 // Loading final scene for now.
                 if (_currentLocationIndex + 1 > locations.Length)
-                    SceneManager.LoadScene(1);
+                    SceneManager.LoadScene("End");
                 else
                     LoadLocation(_currentLocationIndex);
 
