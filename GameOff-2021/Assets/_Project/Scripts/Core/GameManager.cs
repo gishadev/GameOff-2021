@@ -57,6 +57,9 @@ namespace Gisha.GameOff_2021.Core
             // If player is out from the level side > moving to next level. 
             if (IsPassedLevel(_player.transform.position) && !_oncePassed)
                 MoveToNextLevel();
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+                SceneManager.LoadScene("MainMenu");
         }
 
         private bool IsPassedLevel(Vector3 playerPos)
