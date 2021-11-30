@@ -25,7 +25,7 @@ namespace Gisha.GameOff_2021.Core
 
         public static List<Controllable> ControllableList { get; set; }
 
-        private static int _currentLocationIndex = 0;
+        //private static int _currentLocationIndex = 0;
 
         private CameraFollowController _cameraFollow;
         private PlayerController _player;
@@ -39,7 +39,7 @@ namespace Gisha.GameOff_2021.Core
             _player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
             
 //#if !UNITY_EDITOR
-            LoadLocation(_currentLocationIndex);
+            LoadLocation(0);
 //#endif
         }
 
@@ -113,17 +113,17 @@ namespace Gisha.GameOff_2021.Core
             if (_levelManagersQueue.Count < 2)
             {
                 Debug.Log("<color=green>Last level finished. Moving to the next location.</color>");
-                _currentLocationIndex++;
+                //_currentLocationIndex++;
                 _oncePassed = true;
 
                 // Loading final scene for now.
-                if (_currentLocationIndex + 1 > locations.Length)
-                {
+                // if (_currentLocationIndex + 1 > locations.Length)
+                // {
                     SceneManager.LoadScene("End");
                     Timer.StopTimer();
-                }
-                else
-                    LoadLocation(_currentLocationIndex);
+               // }
+                // else
+                //     LoadLocation(_currentLocationIndex);
 
                 return;
             }
